@@ -314,11 +314,11 @@ void admin() // the admin cannot register using the user regstration module. the
 	char password[20];
 adminuser: // indicator
 	printf(" Sign in to the admin account ");
-	printf("Enter Valid Admin ID: "); // valid admin id is kripa
+	printf("Enter Valid Admin ID: "); // valid admin id is vistara
 	scanf("%s", &username);
 	printf("Enter Valid Password: "); // valid password is iiserk
 	scanf("%s", &password);
-	if (strcmp(username, "kripa") == 0) // strcmp is used to compare the input string and "kripa"
+	if (strcmp(username, "vistara") == 0) // strcmp is used to compare the input string and "vistara"
 	{
 		printf("Admin ID is Valid"); // if the valid admin ID is enterd the strcmp function will give 0 and the user ID will be accepted
 		printf("Press any key to continue");
@@ -340,7 +340,7 @@ adminuser: // indicator
 		printf("Press any key to go back and enter valid Password"); // if the user enters invalid password he will be directed to go back and enter valid admin details to continue
 		goto adminuser;												 // indicator to go back and enter the admin ID and password again
 	}
-	if (strcmp(username, "kripa") == 0 && strcmp(password, "iiserk") == 0) // only by entering the valid admin ID and password the admin log in will be allowed.
+	if (strcmp(username, "vistara") == 0 && strcmp(password, "iiserk") == 0) // only by entering the valid admin ID and password the admin log in will be allowed.
 	{
 		printf("Welcome! Successful Admin Login");
 		printf("Press any key to continue");
@@ -811,7 +811,7 @@ void admin_intro() // the function that presents the list of operations for the 
 	int a, b; // two choice variables of int datatype declared.
 
 back_admin: // an identifier that brings us back to this part of the code from some other part of the code or function.
-	printf("Welcome Kripa! :)");
+	printf("Welcome vistara! :)");
 	printf("Kindly choose what change you'd like to make to the database.");
 
 	printf("1. Add flights");

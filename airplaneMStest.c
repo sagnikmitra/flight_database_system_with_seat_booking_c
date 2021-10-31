@@ -315,7 +315,7 @@ adminuser:
 	scanf("%s", &username);
 	printf("Enter Valid Password: ");
 	scanf("%s", &password);
-	if (strcmp(username, "kripa") == 0)
+	if (strcmp(username, "vistara") == 0)
 	{
 		printf("Admin ID is Valid");
 		printf("Press any key to continue");
@@ -337,7 +337,7 @@ adminuser:
 		printf("Press any key to go back and enter valid Password");
 		goto adminuser;
 	}
-	if (strcmp(username, "kripa") == 0 && strcmp(password, "iiserk") == 0)
+	if (strcmp(username, "vistara") == 0 && strcmp(password, "iiserk") == 0)
 	{
 		printf("Welcome! Successful Admin Login");
 		printf("Press any key to continue");
@@ -807,7 +807,7 @@ void admin_intro()
 	int a, b;
 
 back_admin:
-	printf("Welcome Kripa! :)");
+	printf("Welcome vistara! :)");
 	printf("Kindly choose what change you'd like to make to the database.");
 
 	printf("1. Add flights");
