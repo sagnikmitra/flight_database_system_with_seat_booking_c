@@ -103,7 +103,7 @@ void intro() // function which has 4 subfunctions under it - user sign up, user 
 	int i, j; // i and j are integer variables
 
 check: // indicator to come back to this portion of the code while executing later functions under void intro
-	printf("WELCOME TO BHARAT AIR");
+	printf("WELCOME TO VISTARA AIR");
 	printf("1. User Sign Up"); // the user can select 4 options displayed on the screen. Selecting 1 will lead to user registration for creating valid user ID required for flight booking.
 	printf("2. User Login");   // selecting 2 will help the user with existing valid user ID to login to the reservation system for booking
 	printf("3. Admin Login");  // the admin will have unique ID and password. Selecting 3 will onky enable the admin to login and modify flight timing and availability of flights.
