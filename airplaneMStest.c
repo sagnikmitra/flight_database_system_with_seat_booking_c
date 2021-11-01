@@ -103,7 +103,7 @@ void intro()
 	int i, j;
 
 check:
-	printf("WELCOME TO BHARAT AIR");
+	printf("WELCOME TO Venturion AIR");
 	printf("1. User Sign Up");
 	printf("2. User Login");
 	printf("3. Admin Login");
@@ -481,6 +481,7 @@ backagain:
 				}
 			}
 		}
+
 		if (count == 0)
 		{
 			printf("No such flight exists.");

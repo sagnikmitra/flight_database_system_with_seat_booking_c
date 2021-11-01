@@ -1,0 +1,1031 @@
+//181, 393, 820
+      |               char *           int
+      |              %d
+airplaneMStest.c:564:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  564 |      printf("%s\t", Origin[i]);
+      |              ~^     ~~~~~~~~~
+      |               |           |
+      |               char *      int
+      |              %d
+airplaneMStest.c:565:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  565 |      printf("%s\t", Time[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:566:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  566 |      printf("%s\t", seats[i]);
+      |              ~^     ~~~~~~~~
+      |               |          |
+      |               char *     int
+      |              %d
+airplaneMStest.c:601:12: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  601 |    scanf("%s", &times);
+      |           ~^   ~~~~~~
+      |            |   |
+      |            |   char (*)[100]
+      |            char *
+airplaneMStest.c:607:14: warning: comparison between pointer and integer
+  607 |     if (word == date[i] && times == Time[i])
+      |              ^~
+airplaneMStest.c:607:34: warning: comparison between pointer and integer
+  607 |     if (word == date[i] && times == Time[i])
+      |                                  ^~
+airplaneMStest.c:609:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  609 |      printf("%s\t", date[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:610:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  610 |      printf("%s\t", FlightID[i]);
+      |              ~^     ~~~~~~~~~~~
+      |               |             |
+      |               char *        int
+      |              %d
+airplaneMStest.c:611:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  611 |      printf("%s\t", Destination[i]);
+      |              ~^     ~~~~~~~~~~~~~~
+      |               |                |
+      |               char *           int
+      |              %d
+airplaneMStest.c:612:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  612 |      printf("%s\t", Origin[i]);
+      |              ~^     ~~~~~~~~~
+      |               |           |
+      |               char *      int
+      |              %d
+airplaneMStest.c:613:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  613 |      printf("%s\t", Time[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:614:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  614 |      printf("%s\t", seats[i]);
+      |              ~^     ~~~~~~~~
+      |               |          |
+      |               char *     int
+      |              %d
+airplaneMStest.c: In function ‘deleteone’:
+airplaneMStest.c:679:23: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+  679 |    if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |               ~~~~~~~~^~~
+      |                       |
+      |                       char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:679:51: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+  679 |    if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                                               ~~~~^~~
+      |                                                   |
+      |                                                   char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:681:17: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  681 |     FlightID[i] = "NA";
+      |                 ^
+airplaneMStest.c:682:20: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  682 |     Destination[i] = "NA";
+      |                    ^
+airplaneMStest.c:683:15: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  683 |     Origin[i] = "NA";
+      |               ^
+airplaneMStest.c:684:13: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  684 |     Time[i] = "NA";
+      |             ^
+airplaneMStest.c:685:14: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  685 |     seats[i] = "NA";
+      |              ^
+airplaneMStest.c:686:13: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  686 |     date[i] = "NA";
+      |             ^
+airplaneMStest.c: In function ‘edit’:
+airplaneMStest.c:725:20: warning: comparison between pointer and integer
+  725 |    if (FlightID[i] == ID && date[i] == dat)
+      |                    ^~
+airplaneMStest.c:725:37: warning: comparison between pointer and integer
+  725 |    if (FlightID[i] == ID && date[i] == dat)
+      |                                     ^~
+airplaneMStest.c:750:27: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  750 |     FlightID[recognisedD] = temp;
+      |                           ^
+airplaneMStest.c:759:30: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  759 |     Destination[recognisedD] = temp;
+      |                              ^
+airplaneMStest.c:768:25: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  768 |     Origin[recognisedD] = temp;
+      |                         ^
+airplaneMStest.c:776:23: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  776 |     date[recognisedD] = temp;
+      |                       ^
+airplaneMStest.c:784:23: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  784 |     Time[recognisedD] = temp;
+      |                       ^
+airplaneMStest.c:792:24: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  792 |     seats[recognisedD] = temp;
+      |                        ^
+airplaneMStest.c: In function ‘flight_data’:
+airplaneMStest.c:901:32: warning: passing argument 2 of ‘push_back_FlightID’ makes integer from pointer without a cast [-Wint-conversion]
+  901 |   push_back_FlightID(FlightID, a);
+      |                                ^
+      |                                |
+      |                                char *
+airplaneMStest.c:61:42: note: expected ‘char’ but argument is of type ‘char *’
+   61 | void push_back_FlightID(char arr[], char data)
+      |                                     ~~~~~^~~~
+airplaneMStest.c:902:38: warning: passing argument 2 of ‘push_back_Destination’ makes integer from pointer without a cast [-Wint-conversion]
+  902 |   push_back_Destination(Destination, b);
+      |                                      ^
+      |                                      |
+      |                                      char *
+airplaneMStest.c:68:45: note: expected ‘char’ but argument is of type ‘char *’
+   68 | void push_back_Destination(char arr[], char data)
+      |                                        ~~~~~^~~~
+airplaneMStest.c:903:28: warning: passing argument 2 of ‘push_back_Origin’ makes integer from pointer without a cast [-Wint-conversion]
+  903 |   push_back_Origin(Origin, c);
+      |                            ^
+      |                            |
+      |                            char *
+airplaneMStest.c:75:40: note: expected ‘char’ but argument is of type ‘char *’
+   75 | void push_back_Origin(char arr[], char data)
+      |                                   ~~~~~^~~~
+airplaneMStest.c:904:24: warning: passing argument 2 of ‘push_back_Time’ makes integer from pointer without a cast [-Wint-conversion]
+  904 |   push_back_Time(Time, d);
+      |                        ^
+      |                        |
+      |                        char *
+airplaneMStest.c:82:38: note: expected ‘char’ but argument is of type ‘char *’
+   82 | void push_back_Time(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c:905:26: warning: passing argument 2 of ‘push_back_seats’ makes integer from pointer without a cast [-Wint-conversion]
+  905 |   push_back_seats(seats, e);
+      |                          ^
+      |                          |
+      |                          char *
+airplaneMStest.c:89:39: note: expected ‘char’ but argument is of type ‘char *’
+   89 | void push_back_seats(char arr[], char data)
+      |                                  ~~~~~^~~~
+airplaneMStest.c:906:24: warning: passing argument 2 of ‘push_back_date’ makes integer from pointer without a cast [-Wint-conversion]
+  906 |   push_back_date(date, f);
+      |                        ^
+      |                        |
+      |                        char *
+airplaneMStest.c:96:38: note: expected ‘char’ but argument is of type ‘char *’
+   96 | void push_back_date(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c: At top level:
+//Error
+airplaneMStest.c:966:6: error: conflicting types for ‘PrintTicket’
+  966 | void PrintTicket(struct customer_details p)
+      |      ^~~~~~~~~~~
+airplaneMStest.c:28:6: note: previous declaration of ‘PrintTicket’ was here
+   28 | void PrintTicket(struct customer_details p);
+      |      ^~~~~~~~~~~
+airplaneMStest.c: In function ‘PrintTicket’:
+airplaneMStest.c:991:61: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  991 |  printf("                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
+      |                                                            ~^                                          ~~~~~~~~~~~~~~~~~~~~~
+      |                                                             |                                                  |
+      |                                                             char *                                             int
+      |                                                            %d
+airplaneMStest.c:997:40: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  997 |  printf("                          To:%s                 From:%s                                 \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                       ~^                                                                ~~~~~~~~~~~~~~~~~~~
+      |                                        |                                                                      |
+      |                                        char *                                                                 int
+      |                                       %d
+airplaneMStest.c:997:64: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+  997 |  printf("                          To:%s                 From:%s                                 \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                                               ~^                                                             ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                |                                                                        |
+      |                                                                char *                                                                   int
+      |                                                               %d
+airplaneMStest.c:999:42: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  999 |  printf("                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                         ~^                                                            ~~~~~~~~~~~~~~~~~
+      |                                          |                                                                |
+      |                                          char *                                                           int
+      |                                         %d
+airplaneMStest.c:999:62: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+  999 |  printf("                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                             ~^                                                           ~~~~~~~~~~~~~~~~~
+      |                                                              |                                                               |
+      |                                                              char *                                                          int
+      |                                                             %d
+airplaneMStest.c:1005:68: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1005 |  fprintf(fptr, "                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
+      |                                                                   ~^                                          ~~~~~~~~~~~~~~~~~~~~~
+      |                                                                    |                                                  |
+      |                                                                    char *                                             int
+      |                                                                   %d
+airplaneMStest.c:1011:47: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1011 |  fprintf(fptr, "                          To:%s                 From:%s                                  \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                              ~^                                                                 ~~~~~~~~~~~~~~~~~~~
+      |                                               |                                                                       |
+      |                                               char *                                                                  int
+      |                                              %d
+airplaneMStest.c:1011:71: warning: format ‘%s’ expects argument of type ‘char *’, but argument 4 has type ‘int’ [-Wformat=]
+ 1011 |  fprintf(fptr, "                          To:%s                 From:%s                                  \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                                                      ~^                                                              ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                       |                                                                         |
+      |                                                                       char *                                                                    int
+      |                                                                      %d
+airplaneMStest.c:1013:49: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1013 |  fprintf(fptr, "                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                ~^                                                            ~~~~~~~~~~~~~~~~~
+      |                                                 |                                                                |
+      |                                                 char *                                                           int
+      |                                                %d
+airplaneMStest.c:1013:69: warning: format ‘%s’ expects argument of type ‘char *’, but argument 4 has type ‘int’ [-Wformat=]
+ 1013 |  fprintf(fptr, "                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                                    ~^                                                           ~~~~~~~~~~~~~~~~~
+      |                                                                     |                                                               |
+      |                                                                     char *                                                          int
+      |                                                                    %d
+airplaneMStest.c: In function ‘TicketFunc’:
+airplaneMStest.c:1150:2: warning: implicit declaration of function ‘itoa’ [-Wimplicit-function-declaration]
+ 1150 |  itoa(n - TicketNumber, str, 10);
+      |  ^~~~
+airplaneMStest.c:1151:21: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+ 1151 |  seats[flight_book] = str;
+      |                     ^
+airplaneMStest.c: In function ‘getMonthName’:
+airplaneMStest.c:1194:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1194 |   return "January";
+      |          ^~~~~~~~~
+airplaneMStest.c:1199:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1199 |   return "February";
+      |          ^~~~~~~~~~
+airplaneMStest.c:1203:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1203 |   return "March";
+      |          ^~~~~~~
+airplaneMStest.c:1207:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1207 |   return "April";
+      |          ^~~~~~~
+airplaneMStest.c:1211:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1211 |   return "May";
+      |          ^~~~~
+airplaneMStest.c:1215:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1215 |   return "June";
+      |          ^~~~~~
+airplaneMStest.c:1219:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1219 |   return "July";
+      |          ^~~~~~
+airplaneMStest.c:1223:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1223 |   return "August";
+      |          ^~~~~~~~
+airplaneMStest.c:1227:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1227 |   return "September";
+      |          ^~~~~~~~~~~
+airplaneMStest.c:1231:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1231 |   return "October";
+      |          ^~~~~~~~~
+airplaneMStest.c:1235:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1235 |   return "November";
+      |          ^~~~~~~~~~
+airplaneMStest.c:1239:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1239 |   return "December";
+      |          ^~~~~~~~~~
+airplaneMStest.c: In function ‘printCalendar’:
+airplaneMStest.c:1261:32: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1261 |   printf("\n      ------------%s-------------\n  ",
+      |                               ~^
+      |                                |
+      |                                char *
+      |                               %d
+ 1262 |       getMonthName(i));
+      |       ~~~~~~~~~~~~~~~           
+      |       |
+      |       int
+airplaneMStest.c: In function ‘display’:
+airplaneMStest.c:1302:10: warning: comparison between pointer and integer
+ 1302 |   if (dt == date[i])
+      |          ^~
+airplaneMStest.c:1304:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1304 |    printf("%s\t", date[i]);
+      |            ~^     ~~~~~~~
+      |             |         |
+      |             char *    int
+      |            %d
+airplaneMStest.c:1305:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1305 |    printf("%s\t", FlightID[i]);
+      |            ~^     ~~~~~~~~~~~
+      |             |             |
+      |             char *        int
+      |            %d
+airplaneMStest.c:1306:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1306 |    printf("%s\t", Destination[i]);
+      |            ~^     ~~~~~~~~~~~~~~
+      |             |                |
+      |             char *           int
+      |            %d
+airplaneMStest.c:1307:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1307 |    printf("%s\t", Origin[i]);
+      |            ~^     ~~~~~~~~~
+      |             |           |
+      |             char *      int
+      |            %d
+airplaneMStest.c:1308:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1308 |    printf("%s\t", Time[i]);
+      |            ~^     ~~~~~~~
+      |             |         |
+      |             char *    int
+      |            %d
+airplaneMStest.c:1309:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1309 |    printf("%s\t", seats[i]);
+      |            ~^     ~~~~~~~~
+      |             |          |
+      |             char *     int
+      |            %d
+airplaneMStest.c: In function ‘user’:
+airplaneMStest.c:1389:24: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+ 1389 |     if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                ~~~~~~~~^~~
+      |                        |
+      |                        char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:1389:52: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+ 1389 |     if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                                                ~~~~^~~
+      |                                                    |
+      |                                                    char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:1402:23: warning: passing argument 1 of ‘atoi’ makes pointer from integer without a cast [-Wint-conversion]
+ 1402 |     int n = atoi(seats[flight_book]);
+      |                  ~~~~~^~~~~~~~~~~~~
+      |                       |
+      |                       char
+In file included from airplaneMStest.c:3:
+/usr/include/stdlib.h:104:30: note: expected ‘const char *’ but argument is of type ‘char’
+  104 | extern int atoi (const char *__nptr)
+      |                  ~~~~~~~~~~~~^~~~~~
+airplaneMStest.c: In function ‘update’:
+airplaneMStest.c:1438:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1438 |   const char *a = FlightID[i];
+      |                   ^~~~~~~~
+airplaneMStest.c:1439:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1439 |   const char *b = Destination[i];
+      |                   ^~~~~~~~~~~
+airplaneMStest.c:1440:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1440 |   const char *c = Origin[i];
+      |                   ^~~~~~
+airplaneMStest.c:1441:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1441 |   const char *d = Time[i];
+      |                   ^~~~
+airplaneMStest.c:1442:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1442 |   const char *e = seats[i];
+      |                   ^~~~~
+airplaneMStest.c:1443:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1443 |   const char *f = date[i];
+      |                   ^~~~
+sagnik@sagnik-Lenovo-ideapad-320-15IKB:~/GitHub/airplane_seat_reservation_cpp$ ^C
+sagnik@sagnik-Lenovo-ideapad-320-15IKB:~/GitHub/airplane_seat_reservation_cpp$ cd "/home/sagnik/GitHub/airplane_seat_reservation_cpp/" && gcc airplaneMStest.c -o airplaneMStest && "/home/sagnik/GitHub/airplane_seat_reservation_cpp/"airplaneMStest
+//Error
+airplaneMStest.c:27:43: error: array type has incomplete element type ‘struct customer_details’
+   27 | int ticket(int i, struct customer_details d[], int *plan);
+      |                                           ^
+airplaneMStest.c:27:26: warning: ‘struct customer_details’ declared inside parameter list will not be visible outside of this definition or declaration
+   27 | int ticket(int i, struct customer_details d[], int *plan);
+      |                          ^~~~~~~~~~~~~~~~
+airplaneMStest.c:28:25: warning: ‘struct customer_details’ declared inside parameter list will not be visible outside of this definition or declaration
+   28 | void PrintTicket(struct customer_details p);
+      |                         ^~~~~~~~~~~~~~~~
+airplaneMStest.c: In function ‘Register’:
+airplaneMStest.c:214:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[50]’ [-Wformat=]
+  214 |  scanf("%s", &user);
+      |         ~^   ~~~~~
+      |          |   |
+      |          |   char (*)[50]
+      |          char *
+airplaneMStest.c: In function ‘Login’:
+airplaneMStest.c:277:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[50]’ [-Wformat=]
+  277 |  scanf("%s", &username);
+      |         ~^   ~~~~~~~~~
+      |          |   |
+      |          |   char (*)[50]
+      |          char *
+airplaneMStest.c: In function ‘admin’:
+airplaneMStest.c:315:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[50]’ [-Wformat=]
+  315 |  scanf("%s", &username);
+      |         ~^   ~~~~~~~~~
+      |          |   |
+      |          |   char (*)[50]
+      |          char *
+airplaneMStest.c:317:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[20]’ [-Wformat=]
+  317 |  scanf("%s", &password);
+      |         ~^   ~~~~~~~~~
+      |          |   |
+      |          |   char (*)[20]
+      |          char *
+airplaneMStest.c: In function ‘add’:
+airplaneMStest.c:366:31: warning: passing argument 2 of ‘push_back_FlightID’ makes integer from pointer without a cast [-Wint-conversion]
+  366 |  push_back_FlightID(FlightID, a);
+      |                               ^
+      |                               |
+      |                               char *
+airplaneMStest.c:61:42: note: expected ‘char’ but argument is of type ‘char *’
+   61 | void push_back_FlightID(char arr[], char data)
+      |                                     ~~~~~^~~~
+airplaneMStest.c:367:37: warning: passing argument 2 of ‘push_back_Destination’ makes integer from pointer without a cast [-Wint-conversion]
+  367 |  push_back_Destination(Destination, b);
+      |                                     ^
+      |                                     |
+      |                                     char *
+airplaneMStest.c:68:45: note: expected ‘char’ but argument is of type ‘char *’
+   68 | void push_back_Destination(char arr[], char data)
+      |                                        ~~~~~^~~~
+airplaneMStest.c:368:27: warning: passing argument 2 of ‘push_back_Origin’ makes integer from pointer without a cast [-Wint-conversion]
+  368 |  push_back_Origin(Origin, c);
+      |                           ^
+      |                           |
+      |                           char *
+airplaneMStest.c:75:40: note: expected ‘char’ but argument is of type ‘char *’
+   75 | void push_back_Origin(char arr[], char data)
+      |                                   ~~~~~^~~~
+airplaneMStest.c:369:23: warning: passing argument 2 of ‘push_back_Time’ makes integer from pointer without a cast [-Wint-conversion]
+  369 |  push_back_Time(Time, d);
+      |                       ^
+      |                       |
+      |                       char *
+airplaneMStest.c:82:38: note: expected ‘char’ but argument is of type ‘char *’
+   82 | void push_back_Time(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c:370:25: warning: passing argument 2 of ‘push_back_seats’ makes integer from pointer without a cast [-Wint-conversion]
+  370 |  push_back_seats(seats, e);
+      |                         ^
+      |                         |
+      |                         char *
+airplaneMStest.c:89:39: note: expected ‘char’ but argument is of type ‘char *’
+   89 | void push_back_seats(char arr[], char data)
+      |                                  ~~~~~^~~~
+airplaneMStest.c:371:23: warning: passing argument 2 of ‘push_back_date’ makes integer from pointer without a cast [-Wint-conversion]
+  371 |  push_back_date(date, f);
+      |                       ^
+      |                       |
+      |                       char *
+airplaneMStest.c:96:38: note: expected ‘char’ but argument is of type ‘char *’
+   96 | void push_back_date(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c: In function ‘search’:
+airplaneMStest.c:401:11: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  401 |   scanf("%s", &word);
+      |          ~^   ~~~~~
+      |           |   |
+      |           |   char (*)[100]
+      |           char *
+airplaneMStest.c:406:13: warning: comparison between pointer and integer
+  406 |    if (word == FlightID[i])
+      |             ^~
+airplaneMStest.c:408:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  408 |     printf("%s\t", date[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:409:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  409 |     printf("%s\t", FlightID[i]);
+      |             ~^     ~~~~~~~~~~~
+      |              |             |
+      |              char *        int
+      |             %d
+airplaneMStest.c:410:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  410 |     printf("%s\t", Destination[i]);
+      |             ~^     ~~~~~~~~~~~~~~
+      |              |                |
+      |              char *           int
+      |             %d
+airplaneMStest.c:411:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  411 |     printf("%s\t", Origin[i]);
+      |             ~^     ~~~~~~~~~
+      |              |           |
+      |              char *      int
+      |             %d
+airplaneMStest.c:412:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  412 |     printf("%s\t", Time[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:413:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  413 |     printf("%s\t", seats[i]);
+      |             ~^     ~~~~~~~~
+      |              |          |
+      |              char *     int
+      |             %d
+airplaneMStest.c:449:11: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  449 |   scanf("%s", &word);
+      |          ~^   ~~~~~
+      |           |   |
+      |           |   char (*)[100]
+      |           char *
+airplaneMStest.c:454:13: warning: comparison between pointer and integer
+  454 |    if (word == Destination[i])
+      |             ^~
+airplaneMStest.c:457:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  457 |     printf("%s\t", date[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:458:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  458 |     printf("%s\t", FlightID[i]);
+      |             ~^     ~~~~~~~~~~~
+      |              |             |
+      |              char *        int
+      |             %d
+airplaneMStest.c:459:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  459 |     printf("%s\t", Destination[i]);
+      |             ~^     ~~~~~~~~~~~~~~
+      |              |                |
+      |              char *           int
+      |             %d
+airplaneMStest.c:460:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  460 |     printf("%s\t", Origin[i]);
+      |             ~^     ~~~~~~~~~
+      |              |           |
+      |              char *      int
+      |             %d
+airplaneMStest.c:461:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  461 |     printf("%s\t", Time[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:462:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  462 |     printf("%s\t", seats[i]);
+      |             ~^     ~~~~~~~~
+      |              |          |
+      |              char *     int
+      |             %d
+airplaneMStest.c:499:11: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  499 |   scanf("%s", &word);
+      |          ~^   ~~~~~
+      |           |   |
+      |           |   char (*)[100]
+      |           char *
+airplaneMStest.c:505:13: warning: comparison between pointer and integer
+  505 |    if (word == Origin[i])
+      |             ^~
+airplaneMStest.c:507:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  507 |     printf("%s\t", date[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:508:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  508 |     printf("%s\t", FlightID[i]);
+      |             ~^     ~~~~~~~~~~~
+      |              |             |
+      |              char *        int
+      |             %d
+airplaneMStest.c:509:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  509 |     printf("%s\t", Destination[i]);
+      |             ~^     ~~~~~~~~~~~~~~
+      |              |                |
+      |              char *           int
+      |             %d
+airplaneMStest.c:510:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  510 |     printf("%s\t", Origin[i]);
+      |             ~^     ~~~~~~~~~
+      |              |           |
+      |              char *      int
+      |             %d
+airplaneMStest.c:511:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  511 |     printf("%s\t", Time[i]);
+      |             ~^     ~~~~~~~
+      |              |         |
+      |              char *    int
+      |             %d
+airplaneMStest.c:512:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  512 |     printf("%s\t", seats[i]);
+      |             ~^     ~~~~~~~~
+      |              |          |
+      |              char *     int
+      |             %d
+airplaneMStest.c:548:11: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  548 |   scanf("%s", &word);
+      |          ~^   ~~~~~
+      |           |   |
+      |           |   char (*)[100]
+      |           char *
+airplaneMStest.c:560:14: warning: comparison between pointer and integer
+  560 |     if (word == date[i])
+      |              ^~
+airplaneMStest.c:562:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  562 |      printf("%s\t", date[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:563:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  563 |      printf("%s\t", FlightID[i]);
+      |              ~^     ~~~~~~~~~~~
+      |               |             |
+      |               char *        int
+      |              %d
+airplaneMStest.c:564:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  564 |      printf("%s\t", Destination[i]);
+      |              ~^     ~~~~~~~~~~~~~~
+      |               |                |
+      |               char *           int
+      |              %d
+airplaneMStest.c:565:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  565 |      printf("%s\t", Origin[i]);
+      |              ~^     ~~~~~~~~~
+      |               |           |
+      |               char *      int
+      |              %d
+airplaneMStest.c:566:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  566 |      printf("%s\t", Time[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:567:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  567 |      printf("%s\t", seats[i]);
+      |              ~^     ~~~~~~~~
+      |               |          |
+      |               char *     int
+      |              %d
+airplaneMStest.c:602:12: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[100]’ [-Wformat=]
+  602 |    scanf("%s", &times);
+      |           ~^   ~~~~~~
+      |            |   |
+      |            |   char (*)[100]
+      |            char *
+airplaneMStest.c:608:14: warning: comparison between pointer and integer
+  608 |     if (word == date[i] && times == Time[i])
+      |              ^~
+airplaneMStest.c:608:34: warning: comparison between pointer and integer
+  608 |     if (word == date[i] && times == Time[i])
+      |                                  ^~
+airplaneMStest.c:610:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  610 |      printf("%s\t", date[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:611:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  611 |      printf("%s\t", FlightID[i]);
+      |              ~^     ~~~~~~~~~~~
+      |               |             |
+      |               char *        int
+      |              %d
+airplaneMStest.c:612:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  612 |      printf("%s\t", Destination[i]);
+      |              ~^     ~~~~~~~~~~~~~~
+      |               |                |
+      |               char *           int
+      |              %d
+airplaneMStest.c:613:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  613 |      printf("%s\t", Origin[i]);
+      |              ~^     ~~~~~~~~~
+      |               |           |
+      |               char *      int
+      |              %d
+airplaneMStest.c:614:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  614 |      printf("%s\t", Time[i]);
+      |              ~^     ~~~~~~~
+      |               |         |
+      |               char *    int
+      |              %d
+airplaneMStest.c:615:15: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  615 |      printf("%s\t", seats[i]);
+      |              ~^     ~~~~~~~~
+      |               |          |
+      |               char *     int
+      |              %d
+airplaneMStest.c: In function ‘deleteone’:
+airplaneMStest.c:680:23: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+  680 |    if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |               ~~~~~~~~^~~
+      |                       |
+      |                       char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:680:51: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+  680 |    if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                                               ~~~~^~~
+      |                                                   |
+      |                                                   char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:682:17: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  682 |     FlightID[i] = "NA";
+      |                 ^
+airplaneMStest.c:683:20: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  683 |     Destination[i] = "NA";
+      |                    ^
+airplaneMStest.c:684:15: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  684 |     Origin[i] = "NA";
+      |               ^
+airplaneMStest.c:685:13: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  685 |     Time[i] = "NA";
+      |             ^
+airplaneMStest.c:686:14: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  686 |     seats[i] = "NA";
+      |              ^
+airplaneMStest.c:687:13: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  687 |     date[i] = "NA";
+      |             ^
+airplaneMStest.c: In function ‘edit’:
+airplaneMStest.c:726:20: warning: comparison between pointer and integer
+  726 |    if (FlightID[i] == ID && date[i] == dat)
+      |                    ^~
+airplaneMStest.c:726:37: warning: comparison between pointer and integer
+  726 |    if (FlightID[i] == ID && date[i] == dat)
+      |                                     ^~
+airplaneMStest.c:751:27: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  751 |     FlightID[recognisedD] = temp;
+      |                           ^
+airplaneMStest.c:760:30: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  760 |     Destination[recognisedD] = temp;
+      |                              ^
+airplaneMStest.c:769:25: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  769 |     Origin[recognisedD] = temp;
+      |                         ^
+airplaneMStest.c:777:23: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  777 |     date[recognisedD] = temp;
+      |                       ^
+airplaneMStest.c:785:23: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  785 |     Time[recognisedD] = temp;
+      |                       ^
+airplaneMStest.c:793:24: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  793 |     seats[recognisedD] = temp;
+      |                        ^
+airplaneMStest.c: In function ‘flight_data’:
+airplaneMStest.c:902:32: warning: passing argument 2 of ‘push_back_FlightID’ makes integer from pointer without a cast [-Wint-conversion]
+  902 |   push_back_FlightID(FlightID, a);
+      |                                ^
+      |                                |
+      |                                char *
+airplaneMStest.c:61:42: note: expected ‘char’ but argument is of type ‘char *’
+   61 | void push_back_FlightID(char arr[], char data)
+      |                                     ~~~~~^~~~
+airplaneMStest.c:903:38: warning: passing argument 2 of ‘push_back_Destination’ makes integer from pointer without a cast [-Wint-conversion]
+  903 |   push_back_Destination(Destination, b);
+      |                                      ^
+      |                                      |
+      |                                      char *
+airplaneMStest.c:68:45: note: expected ‘char’ but argument is of type ‘char *’
+   68 | void push_back_Destination(char arr[], char data)
+      |                                        ~~~~~^~~~
+airplaneMStest.c:904:28: warning: passing argument 2 of ‘push_back_Origin’ makes integer from pointer without a cast [-Wint-conversion]
+  904 |   push_back_Origin(Origin, c);
+      |                            ^
+      |                            |
+      |                            char *
+airplaneMStest.c:75:40: note: expected ‘char’ but argument is of type ‘char *’
+   75 | void push_back_Origin(char arr[], char data)
+      |                                   ~~~~~^~~~
+airplaneMStest.c:905:24: warning: passing argument 2 of ‘push_back_Time’ makes integer from pointer without a cast [-Wint-conversion]
+  905 |   push_back_Time(Time, d);
+      |                        ^
+      |                        |
+      |                        char *
+airplaneMStest.c:82:38: note: expected ‘char’ but argument is of type ‘char *’
+   82 | void push_back_Time(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c:906:26: warning: passing argument 2 of ‘push_back_seats’ makes integer from pointer without a cast [-Wint-conversion]
+  906 |   push_back_seats(seats, e);
+      |                          ^
+      |                          |
+      |                          char *
+airplaneMStest.c:89:39: note: expected ‘char’ but argument is of type ‘char *’
+   89 | void push_back_seats(char arr[], char data)
+      |                                  ~~~~~^~~~
+airplaneMStest.c:907:24: warning: passing argument 2 of ‘push_back_date’ makes integer from pointer without a cast [-Wint-conversion]
+  907 |   push_back_date(date, f);
+      |                        ^
+      |                        |
+      |                        char *
+airplaneMStest.c:96:38: note: expected ‘char’ but argument is of type ‘char *’
+   96 | void push_back_date(char arr[], char data)
+      |                                 ~~~~~^~~~
+airplaneMStest.c: At top level:
+//Error
+airplaneMStest.c:967:6: error: conflicting types for ‘PrintTicket’
+  967 | void PrintTicket(struct customer_details p)
+      |      ^~~~~~~~~~~
+airplaneMStest.c:28:6: note: previous declaration of ‘PrintTicket’ was here
+   28 | void PrintTicket(struct customer_details p);
+      |      ^~~~~~~~~~~
+airplaneMStest.c: In function ‘PrintTicket’:
+airplaneMStest.c:992:61: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  992 |  printf("                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
+      |                                                            ~^                                          ~~~~~~~~~~~~~~~~~~~~~
+      |                                                             |                                                  |
+      |                                                             char *                                             int
+      |                                                            %d
+airplaneMStest.c:998:40: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  998 |  printf("                          To:%s                 From:%s                                 \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                       ~^                                                                ~~~~~~~~~~~~~~~~~~~
+      |                                        |                                                                      |
+      |                                        char *                                                                 int
+      |                                       %d
+airplaneMStest.c:998:64: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+  998 |  printf("                          To:%s                 From:%s                                 \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                                               ~^                                                             ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                |                                                                        |
+      |                                                                char *                                                                   int
+      |                                                               %d
+airplaneMStest.c:1000:42: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1000 |  printf("                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                         ~^                                                            ~~~~~~~~~~~~~~~~~
+      |                                          |                                                                |
+      |                                          char *                                                           int
+      |                                         %d
+airplaneMStest.c:1000:62: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1000 |  printf("                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                             ~^                                                           ~~~~~~~~~~~~~~~~~
+      |                                                              |                                                               |
+      |                                                              char *                                                          int
+      |                                                             %d
+airplaneMStest.c:1006:68: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1006 |  fprintf(fptr, "                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
+      |                                                                   ~^                                          ~~~~~~~~~~~~~~~~~~~~~
+      |                                                                    |                                                  |
+      |                                                                    char *                                             int
+      |                                                                   %d
+airplaneMStest.c:1012:47: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1012 |  fprintf(fptr, "                          To:%s                 From:%s                                  \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                              ~^                                                                 ~~~~~~~~~~~~~~~~~~~
+      |                                               |                                                                       |
+      |                                               char *                                                                  int
+      |                                              %d
+airplaneMStest.c:1012:71: warning: format ‘%s’ expects argument of type ‘char *’, but argument 4 has type ‘int’ [-Wformat=]
+ 1012 |  fprintf(fptr, "                          To:%s                 From:%s                                  \n\n", Origin[flight_book], Destination[flight_book]);
+      |                                                                      ~^                                                              ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                       |                                                                         |
+      |                                                                       char *                                                                    int
+      |                                                                      %d
+airplaneMStest.c:1014:49: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘int’ [-Wformat=]
+ 1014 |  fprintf(fptr, "                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                ~^                                                            ~~~~~~~~~~~~~~~~~
+      |                                                 |                                                                |
+      |                                                 char *                                                           int
+      |                                                %d
+airplaneMStest.c:1014:69: warning: format ‘%s’ expects argument of type ‘char *’, but argument 4 has type ‘int’ [-Wformat=]
+ 1014 |  fprintf(fptr, "                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
+      |                                                                    ~^                                                           ~~~~~~~~~~~~~~~~~
+      |                                                                     |                                                               |
+      |                                                                     char *                                                          int
+      |                                                                    %d
+airplaneMStest.c: In function ‘TicketFunc’:
+airplaneMStest.c:1151:2: warning: implicit declaration of function ‘itoa’ [-Wimplicit-function-declaration]
+ 1151 |  itoa(n - TicketNumber, str, 10);
+      |  ^~~~
+airplaneMStest.c:1152:21: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+ 1152 |  seats[flight_book] = str;
+      |                     ^
+airplaneMStest.c: In function ‘getMonthName’:
+airplaneMStest.c:1195:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1195 |   return "January";
+      |          ^~~~~~~~~
+airplaneMStest.c:1200:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1200 |   return "February";
+      |          ^~~~~~~~~~
+airplaneMStest.c:1204:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1204 |   return "March";
+      |          ^~~~~~~
+airplaneMStest.c:1208:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1208 |   return "April";
+      |          ^~~~~~~
+airplaneMStest.c:1212:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1212 |   return "May";
+      |          ^~~~~
+airplaneMStest.c:1216:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1216 |   return "June";
+      |          ^~~~~~
+airplaneMStest.c:1220:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1220 |   return "July";
+      |          ^~~~~~
+airplaneMStest.c:1224:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1224 |   return "August";
+      |          ^~~~~~~~
+airplaneMStest.c:1228:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1228 |   return "September";
+      |          ^~~~~~~~~~~
+airplaneMStest.c:1232:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1232 |   return "October";
+      |          ^~~~~~~~~
+airplaneMStest.c:1236:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1236 |   return "November";
+      |          ^~~~~~~~~~
+airplaneMStest.c:1240:10: warning: returning ‘char *’ from a function with return type ‘char’ makes integer from pointer without a cast [-Wint-conversion]
+ 1240 |   return "December";
+      |          ^~~~~~~~~~
+airplaneMStest.c: In function ‘printCalendar’:
+airplaneMStest.c:1262:32: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1262 |   printf("\n      ------------%s-------------\n  ",
+      |                               ~^
+      |                                |
+      |                                char *
+      |                               %d
+ 1263 |       getMonthName(i));
+      |       ~~~~~~~~~~~~~~~           
+      |       |
+      |       int
+airplaneMStest.c: In function ‘display’:
+airplaneMStest.c:1303:10: warning: comparison between pointer and integer
+ 1303 |   if (dt == date[i])
+      |          ^~
+airplaneMStest.c:1305:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1305 |    printf("%s\t", date[i]);
+      |            ~^     ~~~~~~~
+      |             |         |
+      |             char *    int
+      |            %d
+airplaneMStest.c:1306:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1306 |    printf("%s\t", FlightID[i]);
+      |            ~^     ~~~~~~~~~~~
+      |             |             |
+      |             char *        int
+      |            %d
+airplaneMStest.c:1307:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1307 |    printf("%s\t", Destination[i]);
+      |            ~^     ~~~~~~~~~~~~~~
+      |             |                |
+      |             char *           int
+      |            %d
+airplaneMStest.c:1308:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1308 |    printf("%s\t", Origin[i]);
+      |            ~^     ~~~~~~~~~
+      |             |           |
+      |             char *      int
+      |            %d
+airplaneMStest.c:1309:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1309 |    printf("%s\t", Time[i]);
+      |            ~^     ~~~~~~~
+      |             |         |
+      |             char *    int
+      |            %d
+airplaneMStest.c:1310:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+ 1310 |    printf("%s\t", seats[i]);
+      |            ~^     ~~~~~~~~
+      |             |          |
+      |             char *     int
+      |            %d
+airplaneMStest.c: In function ‘user’:
+airplaneMStest.c:1390:24: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+ 1390 |     if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                ~~~~~~~~^~~
+      |                        |
+      |                        char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:1390:52: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+ 1390 |     if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+      |                                                ~~~~^~~
+      |                                                    |
+      |                                                    char
+In file included from airplaneMStest.c:4:
+/usr/include/string.h:137:32: note: expected ‘const char *’ but argument is of type ‘char’
+  137 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+airplaneMStest.c:1403:23: warning: passing argument 1 of ‘atoi’ makes pointer from integer without a cast [-Wint-conversion]
+ 1403 |     int n = atoi(seats[flight_book]);
+      |                  ~~~~~^~~~~~~~~~~~~
+      |                       |
+      |                       char
+In file included from airplaneMStest.c:3:
+/usr/include/stdlib.h:104:30: note: expected ‘const char *’ but argument is of type ‘char’
+  104 | extern int atoi (const char *__nptr)
+      |                  ~~~~~~~~~~~~^~~~~~
+airplaneMStest.c: In function ‘update’:
+airplaneMStest.c:1439:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1439 |   const char *a = FlightID[i];
+      |                   ^~~~~~~~
+airplaneMStest.c:1440:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1440 |   const char *b = Destination[i];
+      |                   ^~~~~~~~~~~
+airplaneMStest.c:1441:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1441 |   const char *c = Origin[i];
+      |                   ^~~~~~
+airplaneMStest.c:1442:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1442 |   const char *d = Time[i];
+      |                   ^~~~
+airplaneMStest.c:1443:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1443 |   const char *e = seats[i];
+      |                   ^~~~~
+airplaneMStest.c:1444:19: warning: initialization of ‘const char *’ from ‘char’ makes pointer from integer without a cast [-Wint-conversion]
+ 1444 |   const char *f = date[i];
+      |                   ^~~~
+sagnik@sagnik-Lenovo-ideapad-320-15IKB:~/GitHub/airplane_seat_reservation_cpp$ 
