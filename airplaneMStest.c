@@ -19,11 +19,9 @@ void flight_data();
 int search();
 void user();
 void update();
-int *randomfunc(int n);
-void seating(int n, int random[]);
-int ticket(int i, struct customer_details d[], int *plan);
-void PrintTicket(struct customer_details p);
-void TicketFunc(int n, int TicketNumber, int *plan);
+void seating(int n);
+
+void TicketFunc(int n, int TicketNumber);
 
 int total, flight_book = -1;
 int infant = 1000, child = 2200, adult = 3000;
@@ -46,6 +44,9 @@ struct customer_details
 	int price;
 	char Num[11];
 };
+
+int ticket(int n, int i, struct customer_details d[]);
+void PrintTicket(struct customer_details p);
 
 char FlightID[INT_MAX];
 char Destination[INT_MAX];
@@ -349,23 +350,23 @@ void add()
 	printf("  Enter the Flight details ");
 
 	printf("Flight ID: ");
-	scanf("%s", a);
+	gets(a);
 	printf("Destination: ");
-	scanf("%s", b);
+	gets(b);
 	printf("Origin: ");
-	scanf("%s", c);
+	gets(c);
 	printf("Date of Departure(DD/MM/YYYY): ");
-	scanf("%s", f);
+	gets(f);
 	printf("Time of Departure(xxxx hrs): ");
-	scanf("%s", d);
+	gets(d);
 	printf("Number of seats available ");
-	scanf("%s", e);
-	push_back_FlightID(FlightID, a);
-	push_back_Destination(Destination, b);
-	push_back_Origin(Origin, c);
-	push_back_Time(Time, d);
-	push_back_seats(seats, e);
-	push_back_date(date, f);
+	gets(e);
+	push_back_FlightID(FlightID, (char)a);
+	push_back_Destination(Destination, (char)b);
+	push_back_Origin(Origin, (char)c);
+	push_back_Time(Time, (char)d);
+	push_back_seats(seats, (char)e);
+	push_back_date(date, (char)f);
 	total = sizeof(FlightID) / sizeof(FlightID[0]);
 	update();
 	printf("Details have been successfully entered! Press enter to continue");
@@ -674,7 +675,7 @@ void deleteone()
 		for (int i = 0; i < total; i++)
 		{
 
-			if (strcmp(FlightID[i], ID) == 0 && strcmp(date[i], dates) == 0)
+			if (strcmp((char)FlightID[i], (char)ID) == 0 && strcmp((char)date[i], (char)dates) == 0)
 			{
 				FlightID[i] = "NA";
 				Destination[i] = "NA";
@@ -907,17 +908,17 @@ void flight_data()
 	total = sizeof(FlightID) / sizeof(FlightID[0]);
 }
 
-int ticket(int i, struct customer_details d[], int *plan)
+int ticket(int n, int i, struct customer_details d[])
 {
 	int k, t, counter = 0;
 	printf("Age: ");
 	scanf("%d", &d[i].age);
-	if (d[i].age <= 2)
+	if (d[i].age <= 5)
 	{
 		printf("Ticket price is %d\n", infant);
 		d[i].price = infant;
 	}
-	else if (d[i].age > 2 && d[i].age < 18)
+	else if (d[i].age > 5 && d[i].age < 18)
 	{
 		printf("Ticket price is %d\n", child);
 		d[i].price = child;
@@ -934,30 +935,12 @@ int ticket(int i, struct customer_details d[], int *plan)
 	printf("Last Name: ");
 	scanf("%s", d[i].LastName);
 
-	printf("Phone number: ");
+	printf("AADHAR number: ");
 	scanf("%s", d[i].Num);
 
-seatsetting:
-	printf("Seat number");
-	scanf("%d", &k);
+	printf("Seat number is %d\n", n - i);
 
-	for (t = 0; t < 100; t++)
-	{
-		if (plan[t] == k)
-		{
-			counter = 1;
-		}
-	}
-	if (counter == 1)
-	{
-		d[i].seat_number = k;
-		printf("%d", d[i].seat_number);
-	}
-	else
-	{
-		printf("    Invalid seat number. Please fill again");
-		goto seatsetting;
-	}
+	d[i].seat_number = n - i;
 	return d[i].seat_number;
 }
 
@@ -1036,117 +1019,19 @@ void PrintTicket(struct customer_details p)
 	fclose(fptr);
 }
 
-int *randomfunc(int n)
+void TicketFunc(int n, int TicketNumber)
 {
-	int i, k = 0;
-	bool arr[100] = {0};
-	static int random[100] = {0};
-	time_t t;
-	srand((unsigned)time(&t));
-	for (i = 0; i < n; ++i)
-	{
-		int r = rand() % 61;
-		if (!arr[r] && r != 0)
-		{
-			random[k] = r;
-			k++;
-		}
-		else
-		{
-			i--;
-		}
-		arr[r] = 1;
-	}
-	return random;
-}
-
-void seating(int n, int random[])
-{
-	int i, o, j, pos = 5;
-
-	printf("  Seating Chart\n\n");
-
-	printf("   x--------xx--------x\n   ");
-	for (o = 1; o <= 60; o++)
-	{
-		printf("|");
-		int counter = 0;
-		for (j = 0; j < n; j++)
-		{
-			if (random[j] == o)
-			{
-				counter += 1;
-			}
-		}
-		if (counter == 0)
-		{
-			if (o % 6 == 0)
-			{
-				printf("xx|\n   ");
-			}
-			else if (o % 3 == 0 && o % 6 != 0)
-			{
-				printf("xx|");
-			}
-			else
-			{
-				printf("xx");
-			}
-		}
-		else
-		{
-			if (o % 6 == 0 && o / 10 == 0)
-			{
-				printf("0%d|\n   ", o);
-			}
-			else if (o % 3 == 0 && o % 6 != 0 && o / 10 == 0)
-			{
-				printf("0%d|", o);
-			}
-			else if (o % 3 == 0 && o % 6 != 0 && o / 10 != 0)
-			{
-				printf("%d|", o);
-			}
-			else if (o % 6 == 0 && o / 10 != 0)
-			{
-				printf("%d|\n   ", o);
-			}
-			else if (o % 3 != 0 && o % 6 != 0 && o / 10 == 0)
-			{
-				printf("0%d", o);
-			}
-			else
-			{
-				printf("%d", o);
-			}
-		}
-	}
-	printf("x--------xx--------x\n\n");
-	printf(" xx--> unavailable seats.\n\n");
-}
-
-void TicketFunc(int n, int TicketNumber, int *plan)
-{
-	int age, i, j, q, n1 = n, b, sum = 0;
+	int age, i, j, q, b, sum = 0;
 	struct customer_details d[TicketNumber];
 
 	for (i = 0; i < TicketNumber; i++)
 	{
-		seating(n1, plan);
 		printf("For Ticket %d:", i + 1);
-		j = ticket(i, d, plan);
-		for (q = 0; q < 100; q++)
-		{
-			if (plan[q] == j)
-			{
-				plan[q] = 0;
-				--n1;
-			}
-		}
+		ticket(n, i, d);
 	}
 	char str[10];
 	itoa(n - TicketNumber, str, 10);
-	seats[flight_book] = str;
+	seats[flight_book] = *str;
 	update();
 	for (i = 0; i < TicketNumber; i++)
 	{
@@ -1398,15 +1283,13 @@ check:
 			else
 			{
 				int n = atoi(seats[flight_book]);
-
-				int *plan = randomfunc(n);
 			check2:
 				printf("The number of available seats are %d", n);
 				printf("Number of seats you wish to book: ");
 				scanf("%d", &TicketNumber);
 				if (TicketNumber <= n)
 				{
-					TicketFunc(n, TicketNumber, plan);
+					TicketFunc(n, TicketNumber);
 				}
 				else
 				{
