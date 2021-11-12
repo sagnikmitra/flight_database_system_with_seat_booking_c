@@ -50,6 +50,7 @@ char Origin[100];
 char Time[100];
 char seats[100];
 char date[100];
+
 void printLineFromLineNumber(int lineNumber)
 {
     FILE *fp;
@@ -454,7 +455,7 @@ backagain:
         printf("Enter a valid Flight ID: ");
         scanf("%s", &word);
         printf("Available flights\n\n\n");
-        printf("Sl.  Id   From   To     Time SA Date\n");
+        printf("Sl.  Id   To   From     Time SA Date\n");
 
         if (searchItem(word) == 0)
         {
@@ -471,7 +472,7 @@ backagain:
         printf("Enter a valid Destination: ");
         scanf("%s", &word);
         printf("Available flights\n\n\n");
-        printf("Sl.  Id   From   To     Time SA Date\n");
+        printf("Sl.  Id   To   From     Time SA Date\n");
 
         if (searchItem(word) == 0)
         {
@@ -532,7 +533,7 @@ backagain:
         scanf("%s", &word);
 
         printf("Available flights\n\n\n");
-        printf("Sl.  Id   From   To     Time SA Date\n");
+        printf("Sl.  Id   To   From     Time SA Date\n");
 
         if (searchItem(word) == 0)
         {
@@ -553,7 +554,7 @@ backagain:
             printf("Enter a valid Date: (DD/MM/YYYY)");
             scanf("%s", &word);
             printf("Available flights\n\n\n");
-            printf("Sl.  Id   From   To     Time SA Date\n");
+            printf("Sl.  Id   To   From     Time SA Date\n");
 
             if (searchItem(word) == 0)
             {
@@ -568,7 +569,7 @@ backagain:
             printf("Enter a valid Time: [Format: 19 hours 10 minutes will be entered as 1910]");
             scanf("%s", &word);
             printf("Available flights\n\n\n");
-            printf("Sl.  Id   From   To     Time SA Date\n");
+            printf("Sl.  Id   To   From     Time SA Date\n");
 
             if (searchItem(word) == 0)
             {
@@ -585,7 +586,7 @@ backagain:
         // // printf("Press 1 to search for a specific time or 0 to list all flights: ");
         // // scanf("%d", &g);
         // printf("Available flights\n\n\n");
-        // printf("Sl.  Id   From   To     Time SA Date\n");
+        // printf("Sl.  Id   To   From     Time SA Date\n");
         // if (searchItem(word) == 0)
         // {
         //     printf("-\t-\t-\t-\t-\t-\n");

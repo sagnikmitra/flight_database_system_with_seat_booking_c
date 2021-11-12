@@ -1,5 +1,5 @@
 #include <stdio.h>
-void printLineFromLineNumber(int lineNumber)
+void removeLineFromLineNumber(int lineNumber)
 {
     FILE *fptr1, *fptr2;
     char file1[] = "TestTemp2.txt";
@@ -31,7 +31,7 @@ int lll()
 {
     if (remove("TestTemp2.txt") == 0)
     {
-        printf("File deleted successfully");
+        printf("");
     }
     else
     {
@@ -43,7 +43,7 @@ int lll()
     value = rename(old_name, new_name);
     if (!value)
     {
-        printf("%s", "File name changed successfully");
+        printf("%s", "");
     }
     else
     {
@@ -52,7 +52,7 @@ int lll()
 }
 int removeFlightFromSlNo(int slNo)
 {
-    printLineFromLineNumber(slNo);
+    removeLineFromLineNumber(slNo);
     lll();
     return 0;
 }
