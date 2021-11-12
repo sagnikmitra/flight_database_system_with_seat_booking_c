@@ -9,11 +9,6 @@ void intro();
 void Register();
 void Login();
 void admin();
-void box(int a, int b, int c, int d);
-void box1(int a, int b, int c, int d);
-void delay(int milliseconds);
-void logo();
-void anime();
 void add();
 void deleteone();
 void edit();
@@ -96,6 +91,64 @@ findNextLine:
     }
     fclose(fp);
     return count;
+}
+
+void removeLineFromLineNumber(int lineNumber)
+{
+    FILE *fptr1, *fptr2;
+    char file1[] = "Test.txt";
+    char file2[] = "temp.txt";
+    char curr;
+    int del, line_number = 0;
+    del = lineNumber;
+    fptr1 = fopen(file1, "r");
+    fptr2 = fopen(file2, "w");
+    curr = getc(fptr1);
+    if (curr != EOF)
+    {
+        line_number = 1;
+    }
+    while (1)
+    {
+        if (del != line_number)
+            putc(curr, fptr2);
+        curr = getc(fptr1);
+        if (curr == '\n')
+            line_number++;
+        if (curr == EOF)
+            break;
+    }
+    fclose(fptr1);
+    fclose(fptr2);
+}
+int lll()
+{
+    if (remove("Test.txt") == 0)
+    {
+        printf("File deleted successfully");
+    }
+    else
+    {
+        printf("Could not delete file");
+    }; // remove the original file
+    char old_name[] = "temp.txt";
+    char new_name[] = "Test.txt";
+    int value;
+    value = rename(old_name, new_name);
+    if (!value)
+    {
+        printf("%s", "File name changed successfully");
+    }
+    else
+    {
+        perror("Error");
+    }
+}
+int removeFlightFromSlNo(int slNo)
+{
+    removeLineFromLineNumber(slNo);
+    lll();
+    return 0;
 }
 
 void intro()
@@ -197,6 +250,7 @@ void Register()
 
         fwrite(&a, sizeof(a), 1, fp);
         fclose(fp);
+
         goto next;
     }
 
@@ -228,9 +282,7 @@ credentials:
 
     {
         printf("User ID already exists");
-        printf("Enter a different User ID");
-        printf("Press any key to continue");
-        goto credentials;
+        Login();
     }
     else
     {
@@ -347,11 +399,11 @@ adminuser:
 
 void add()
 {
-    char a[100], b[100], c[100], d[100], e[100], f[100];
+    char a[100], b[100], c[100], d[100], e[100], f[100], g[100], h[100], q[100];
 
     printf("  Enter the Flight details ");
 
-    printf("Flight ID: ");
+    printf("Enter the Four Digit Flight ID: ");
     scanf("%s", &a);
     printf("Destination: ");
     scanf("%s", &b);
@@ -363,10 +415,16 @@ void add()
     scanf("%s", &d);
     printf("Number of seats available ");
     scanf("%s", &e);
+    printf("Enter Adult Fare ");
+    scanf("%s", &g);
+    printf("Enter Child Fare ");
+    scanf("%s", &h);
+    printf("Enter Infant Fare ");
+    scanf("%s", &q);
     int i = 0;
     FILE *temp;
     temp = fopen("Test.txt", "a");
-    fprintf(temp, "%s %s %s %s %s %s\n", a, b, c, d, e, f);
+    fprintf(temp, "%s %s %s %s %s %s %s %s %s\n", a, b, c, d, e, f, g, h, q);
     fclose(temp);
     printf("Details have been successfully entered! Press enter to continue");
 }
@@ -395,7 +453,7 @@ backagain:
 
         printf("Enter a valid Flight ID: ");
         scanf("%s", &word);
-        printf("Available flights");
+        printf("Available flights\n\n\n");
         printf("Sl.  Id   From   To     Time SA Date\n");
 
         if (searchItem(word) == 0)
@@ -412,7 +470,7 @@ backagain:
         int count = 0, line_count = 0, dd;
         printf("Enter a valid Destination: ");
         scanf("%s", &word);
-        printf("Available flights");
+        printf("Available flights\n\n\n");
         printf("Sl.  Id   From   To     Time SA Date\n");
 
         if (searchItem(word) == 0)
@@ -445,7 +503,7 @@ backagain:
         //         if (dd == 1)
         //         {
 
-        //             printf("Available flights");
+        //             printf("Available flights\n\n\n");
         //             printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
 
         //             line_count = 0;
@@ -468,12 +526,12 @@ backagain:
     else if (t == 3)
     {
         int count = 0, line_count = 0, dd;
-        printf("Available flights");
+        printf("Available flights\n\n\n");
         printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
         printf("Enter a valid Origin: ");
         scanf("%s", &word);
 
-        printf("Available flights");
+        printf("Available flights\n\n\n");
         printf("Sl.  Id   From   To     Time SA Date\n");
 
         if (searchItem(word) == 0)
@@ -488,13 +546,13 @@ backagain:
     else if (t == 4)
     {
         int count = 0, g, line_count = 0, dd;
-        print("Enter 1 to Search by Date, 2 to Search by Time");
+        printf("Enter 1 to Search by Date, 2 to Search by Time");
         scanf("%d", &g);
         if (g == 1)
         {
             printf("Enter a valid Date: (DD/MM/YYYY)");
             scanf("%s", &word);
-            printf("Available flights");
+            printf("Available flights\n\n\n");
             printf("Sl.  Id   From   To     Time SA Date\n");
 
             if (searchItem(word) == 0)
@@ -509,7 +567,7 @@ backagain:
         {
             printf("Enter a valid Time: [Format: 19 hours 10 minutes will be entered as 1910]");
             scanf("%s", &word);
-            printf("Available flights");
+            printf("Available flights\n\n\n");
             printf("Sl.  Id   From   To     Time SA Date\n");
 
             if (searchItem(word) == 0)
@@ -522,11 +580,11 @@ backagain:
         }
         // printf("Enter a date (DD/MM/YYYY): ");
         // scanf("%s", &word);
-        // // printf("Available flights");
+        // // printf("Available flights\n\n\n");
         // // printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
         // // printf("Press 1 to search for a specific time or 0 to list all flights: ");
         // // scanf("%d", &g);
-        // printf("Available flights");
+        // printf("Available flights\n\n\n");
         // printf("Sl.  Id   From   To     Time SA Date\n");
         // if (searchItem(word) == 0)
         // {
@@ -559,7 +617,7 @@ backagain:
         //             scanf("%d", &dd);
         //             if (dd == 1)
         //             {
-        //                 printf("Available flights");
+        //                 printf("Available flights\n\n\n");
         //                 printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
 
         //                 line_count = 0;
@@ -581,7 +639,7 @@ backagain:
         // else
         // {
         //     char times[100];
-        //     printf("Available flights");
+        //     printf("Available flights\n\n\n");
         //     printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
         //     printf("Enter time in 24 hours format: ");
         //     scanf("%s", &times);
@@ -609,7 +667,7 @@ backagain:
         //             scanf("%d", &dd);
         //             if (dd == 1)
         //             {
-        //                 printf("Available flights");
+        //                 printf("Available flights\n\n\n");
         //                 printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
 
         //                 line_count = 0;
@@ -642,49 +700,12 @@ backagain:
 
 void deleteone()
 {
+    int lineNumber;
     search();
-    printf("  Enter the flight details to be deleted ");
-
-    char ID[20], dates[10];
-    int recognised = -1;
-    if (total == 0)
-    {
-        printf("You've no data to delete!'");
-    }
-    else
-    {
-        printf("Flight ID: ");
-        scanf("%s", ID);
-        printf("Date of the flight(DD/MM/YYYY): ");
-        scanf("%s", dates);
-
-        int i = 0;
-        for (i = 0; i < total; i++)
-        {
-
-            if (strcmp(&(FlightID[i]), ID) == 0 && strcmp(&(date[i]), dates) == 0)
-            {
-                FlightID[i] = *"NA";
-                Destination[i] = *"NA";
-                Origin[i] = *"NA";
-                Time[i] = *"NA";
-                seats[i] = *"NA";
-                date[i] = *"NA";
-                recognised += 1;
-            }
-        }
-
-        if (recognised == -1)
-        {
-            printf("Sorry, there are no flights with the given Flight ID!");
-        }
-        else
-        {
-            total = sizeof(FlightID) / sizeof(FlightID[0]);
-            update();
-            printf("The data has been deleted!");
-        }
-    }
+    printf("Enter the Correct Sl. No. from the Above table");
+    scanf("%d", &lineNumber);
+    removeFlightFromSlNo(lineNumber);
+    printf("Flight deleted successfully!");
 }
 
 void edit()
@@ -1055,7 +1076,7 @@ void display()
     scanf("%s", dt);
     int n = total;
     int count = 0;
-    printf("Available flights");
+    printf("Available flights\n\n\n");
     printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
 
     int i = 0;
@@ -1087,32 +1108,14 @@ void user()
 check:
 
     printf("Welcome %s %s\n", u.firstname, u.lastname);
-    printf("1. View flights by date");
-    printf("2. Free Search");
-    printf("3. Book the flight");
-    printf("4. Logout");
+    printf("1. Free Search\n");
+    printf("2. Book the flight\n");
+    printf("3. Logout\n");
 
-    printf("  Enter Your Choice [1-4] = ");
+    printf("  Enter Your Choice [1-3] = ");
 
     scanf("%d", &i);
     if (i == 1)
-    {
-        display();
-        printf("Press 0 to go back to the main page.");
-        printf("Press 1 to Exit.\n");
-        printf("  Enter Your Choice [0-1] = ");
-
-        scanf("%d", &b);
-        if (b == 0)
-        {
-            goto check;
-        }
-        else if (b == 1)
-        {
-            exit(0);
-        }
-    }
-    else if (i == 2)
     {
         search();
         printf("Press 0 to go back to the main page.");
@@ -1130,7 +1133,7 @@ check:
         }
     }
 
-    else if (i == 3)
+    else if (i == 2)
     {
         if (total == 0)
         {
@@ -1182,7 +1185,7 @@ check:
             }
         }
     }
-    else if (i == 4)
+    else if (i == 3)
     {
         intro();
     }
