@@ -69,7 +69,6 @@ void printLineFromLineNumber(int lineNumber)
     // printf("%s", lineAppear);
     fclose(fp);
 }
-
 int searchItem(char *word)
 {
     FILE *fp;
@@ -92,7 +91,6 @@ findNextLine:
     fclose(fp);
     return count;
 }
-
 void removeLineFromLineNumber(int lineNumber)
 {
     FILE *fptr1, *fptr2;
@@ -121,7 +119,7 @@ void removeLineFromLineNumber(int lineNumber)
     fclose(fptr1);
     fclose(fptr2);
 }
-int lll()
+int removeFileAndRename()
 {
     if (remove("Test.txt") == 0)
     {
@@ -147,10 +145,9 @@ int lll()
 int removeFlightFromSlNo(int slNo)
 {
     removeLineFromLineNumber(slNo);
-    lll();
+    removeFileAndRename();
     return 0;
 }
-
 void intro()
 {
     int i, j;
@@ -223,7 +220,6 @@ check:
         exit(0);
     }
 }
-
 void Register()
 {
     char user[50];
@@ -301,7 +297,6 @@ next:
     printf("Press any key to continue\n");
     Login();
 }
-
 void Login()
 {
     char username[40];
@@ -359,7 +354,6 @@ login:
     }
     fclose(fp);
 }
-
 void admin()
 {
     char username[50];
@@ -399,7 +393,6 @@ adminuser:
         admin_intro();
     }
 }
-
 void add()
 {
     char a[100], b[100], c[100], d[100], e[100], f[100], g[100], h[100], q[100];
@@ -431,7 +424,6 @@ void add()
     fclose(temp);
     printf("Details have been successfully entered! Press enter to continue");
 }
-
 int search()
 {
     int n = total;
@@ -552,7 +544,6 @@ backagain:
         goto backagain;
     }
 }
-
 void deleteone()
 {
     int lineNumber;
@@ -562,7 +553,6 @@ void deleteone()
     removeFlightFromSlNo(lineNumber);
     printf("Flight deleted successfully!");
 }
-
 void admin_intro()
 {
     int a, b;
@@ -650,7 +640,6 @@ back_admin:
         goto back_admin;
     }
 }
-
 void flight_data()
 {
     int i = 0;
@@ -668,7 +657,6 @@ void flight_data()
     }
     fclose(temp);
 }
-
 int ticket(int n, int i, struct customer_details d[])
 {
     int k, t, counter = 0;
@@ -704,7 +692,6 @@ int ticket(int n, int i, struct customer_details d[])
     d[i].seat_number = n - i;
     return d[i].seat_number;
 }
-
 void PrintTicket(struct customer_details p)
 {
     FILE *fptr;
@@ -779,7 +766,6 @@ void PrintTicket(struct customer_details p)
 
     fclose(fptr);
 }
-
 void TicketFunc(int n, int TicketNumber)
 {
     int age, i, j, q, b, sum = 0;
@@ -821,7 +807,6 @@ void TicketFunc(int n, int TicketNumber)
         break;
     }
 }
-
 void update()
 {
     int i = 0;
@@ -916,7 +901,6 @@ void ReplaceFunc(char *updatedStr, int lineNumber)
 
     // printf("\nSuccessfully replaced '%d' line with '%s'.", line, newline);
 }
-
 int isEmpty(const char *str)
 {
     char ch;
@@ -1080,7 +1064,6 @@ void edit()
     search();
     editFlightDetails();
 }
-
 void user()
 {
     int TicketNumber, i, j, b;
@@ -1117,7 +1100,7 @@ check:
     {
         int vuid;
         //Unique Id (asole etai sl. no.)
-        int totalTickets; //Total Number of Demanded tickets
+        int totalTickets = 0; //Total Number of Demanded tickets
         search();
         printf("Book the flight: ");
         printf("Enter the Vistara Unique Id from the above table: ");
@@ -1125,6 +1108,7 @@ check:
         int lineNumber = vuid;
         printf("Enter the Total Number of Tickets you want to Book: ");
         scanf("%d", &totalTickets);
+        const int totalTickets1 = totalTickets;
         int tTypeArr[totalTickets];
     choice:
         for (i = 0; i < totalTickets; i++)
@@ -1213,9 +1197,10 @@ check:
         int totalFare = 0;
         int counter = counter2;
         printf("New Seat Prev Value: %d\n", counter2 + 1);
-        for (int i = 0; i < totalTickets; i++)
+        int totalTickets2 = totalTickets1;
+        for (int i = 0; i < totalTickets2; i++)
         {
-            printf("Printing Total Tickets: %d", totalTickets);
+            // printf("Printing Total Tickets: %d", totalTickets);
             char FirstName[50];
             char LastName[50];
             char Aadhaar[12];
@@ -1225,9 +1210,8 @@ check:
             scanf("%s", LastName);
             printf("Enter Aadhaar Number: ");
             scanf("%s", Aadhaar);
-            printf("\nTICKET-%d\n", i + 1);
-            printf("First Name: %s\n", FirstName);
-            printf("Last Name: %s\n", LastName);
+            printf("\nTICKET-%d\n---------", i + 1);
+            printf("Name: %s %s\n", FirstName, LastName);
             printf("Aadhaar Number: %s\n", Aadhaar);
             printf("Flight ID: %s\n", array[0]);
             printf("Destination: %s\n", array[1]);
