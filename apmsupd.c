@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
-
+#define BUFFER_SIZE 1000
 void intro();
 void Register();
 void Login();
@@ -18,6 +18,17 @@ int search();
 void user();
 void update();
 void TicketFunc(int n, int TicketNumber);
+void editFlightDetails();
+void removeLineFromLineNumber(int lineNumber);
+void printLineFromLineNumber(int lineNumber);
+int removeFlightFromSlNo(int slNo);
+int removeFileAndRename();
+int searchItem(char *word);
+void ReplaceFunc(char *updatedStr, int lineNumber);
+void removeEmptyLines(FILE *srcFile, FILE *tempFile);
+void removeEmptyLinesFromFile();
+int writeToAFile();
+int writeToALineInFile(int lineNumber, char *word);
 
 int total, flight_book = -1;
 
@@ -39,9 +50,6 @@ struct customer_details
     int price;
     char Num[12];
 };
-
-int ticket(int n, int i, struct customer_details d[]);
-void PrintTicket(struct customer_details p);
 
 char FlightID[100];
 char Destination[100];
@@ -657,156 +665,6 @@ void flight_data()
     }
     fclose(temp);
 }
-int ticket(int n, int i, struct customer_details d[])
-{
-    int k, t, counter = 0;
-    printf("Age: ");
-    scanf("%d", &d[i].age);
-    if (d[i].age <= 5)
-    {
-        printf("Ticket price is %d\n", 20);
-        d[i].price = 20;
-    }
-    else if (d[i].age > 5 && d[i].age < 18)
-    {
-        printf("Ticket price is %d\n", 20);
-        d[i].price = 20;
-    }
-    else
-    {
-        printf("Ticket price is %d\n", 0);
-        d[i].price = 20;
-    }
-
-    printf("First Name: ");
-    scanf("%s", d[i].FirstName);
-
-    printf("Last Name: ");
-    scanf("%s", d[i].LastName);
-
-    printf("AADHAR number: ");
-    scanf("%s", d[i].Num);
-
-    printf("Seat number is %d\n", n - i);
-
-    d[i].seat_number = n - i;
-    return d[i].seat_number;
-}
-void PrintTicket(struct customer_details p)
-{
-    FILE *fptr;
-    fptr = fopen("boarding.txt", "a");
-    int i = 0, j;
-
-    printf("  ====================================================================================\n");
-    fprintf(fptr, "  ====================================================================================\n");
-    for (i = 0; i < 2; i++)
-    {
-        for (j = 0; j < i;)
-        {
-            if (j / 2 == 0)
-            {
-                printf(" ||                                                                                  ||\n");
-                fprintf(fptr, " ||                                                                                  ||\n");
-            }
-            else
-            {
-                printf("                                                                                       \n");
-                fprintf(fptr, "                                                                                               \n");
-            }
-            j++;
-        }
-    }
-    printf("                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
-    printf(" ||                                                                                  ||\n");
-    printf("                                 Name           %s %s                                  \n\n", p.FirstName, p.LastName);
-    printf(" ||                                                                                  ||\n");
-    printf("                                 Price            Rs. %d/-                             \n\n", p.price);
-    printf(" ||                                                                                  ||\n");
-    printf("                          To:%s                 From:%s                                 \n\n", Origin[flight_book], Destination[flight_book]);
-    printf(" ||                                                                                  ||\n");
-    printf("                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
-    printf(" ||                                                                                  ||\n");
-    printf("                               Seat Number        %d                                   \n\n", p.seat_number);
-    printf(" ||                                                                                  ||\n");
-    printf("                                Gate Number       2A                                   \n\n");
-
-    fprintf(fptr, "                               Flight ID          %s                                   \n\n", FlightID[flight_book]);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                                 Name           %s %s                                  \n\n", p.FirstName, p.LastName);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                                 Price             Rs. %d /-                                   \n\n", p.price);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                          To:%s                 From:%s                                  \n\n", Origin[flight_book], Destination[flight_book]);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                          Date:%s             Time:%s                                 \n\n", date[flight_book], Time[flight_book]);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                               Seat Number        %d                                   \n\n", p.seat_number);
-    fprintf(fptr, " ||                                                                                  ||\n");
-    fprintf(fptr, "                                Gate Number       2A                                   \n\n");
-
-    for (i = 0; i < 2; i++)
-    {
-        for (j = 0; j < i; j++)
-        {
-            if (j / 2 == 0)
-            {
-                printf(" ||                                                                                  ||\n");
-                fprintf(fptr, " ||                                                                                  ||\n");
-            }
-            else
-            {
-                printf("                                                                                       \n");
-                fprintf(fptr, "                                                                                       \n");
-            }
-        }
-    }
-    printf("  ====================================================================================\n");
-    fprintf(fptr, "  ====================================================================================\n");
-
-    fclose(fptr);
-}
-void TicketFunc(int n, int TicketNumber)
-{
-    int age, i, j, q, b, sum = 0;
-    struct customer_details d[TicketNumber];
-
-    for (i = 0; i < TicketNumber; i++)
-    {
-        printf("For Ticket %d:", i + 1);
-        ticket(n, i, d);
-    }
-    char str[10];
-    itoa(n - TicketNumber, str, 10);
-    seats[flight_book] = *str;
-    update();
-    for (i = 0; i < TicketNumber; i++)
-    {
-        PrintTicket(d[i]);
-        sum += d[i].price;
-    }
-    printf("\n\t\t\t\t Total price: Rs. %d\n\n", sum);
-
-    printf("Press 0 to go back to the user page.\n");
-    printf("Press 1 to go the main page.\n");
-    printf("Press 2 to Exit.\n");
-    scanf("%d", &b);
-    switch (b)
-    {
-    case 0:
-
-        user();
-        break;
-    case 1:
-
-        intro();
-        break;
-    case 2:
-
-        exit(0);
-        break;
-    }
-}
 void update()
 {
     int i = 0;
@@ -824,7 +682,6 @@ void update()
     }
     fclose(temp);
 }
-#define BUFFER_SIZE 1000
 int writeToALineInFile(int lineNumber, char *word)
 {
     FILE *fp;
