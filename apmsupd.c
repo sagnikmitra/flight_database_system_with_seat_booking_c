@@ -126,7 +126,7 @@ int lll()
 {
     if (remove("Test.txt") == 0)
     {
-        printf("File deleted successfully");
+        printf("");
     }
     else
     {
@@ -138,7 +138,7 @@ int lll()
     value = rename(old_name, new_name);
     if (!value)
     {
-        printf("%s", "File name changed successfully");
+        printf("%s", "");
     }
     else
     {
@@ -353,7 +353,7 @@ login:
     else if (sum == 0)
     {
         printf("Enter valid UserID");
-        printf("User Login Unsuccessful! Press any key to continue.");
+        printf("User Login Unsuccessful! Press any key to continue.\n");
     }
     fclose(fp);
 }
@@ -463,7 +463,7 @@ backagain:
             printf("No such flight exists.\n");
             goto backagain;
         }
-        printf("Press any key to continue.");
+        printf("Press any key to continue.\n");
     }
 
     else if (t == 2)
@@ -480,7 +480,7 @@ backagain:
             printf("No such flight exists.\n");
             goto backagain;
         }
-        printf("Press any key to continue.");
+        printf("Press any key to continue.\n");
         // int i = 0;
         // for (i = 0; i < n; i++)
         // {
@@ -521,7 +521,7 @@ backagain:
         //     printf("No such flight exists.");
         //     goto backagain;
         // }
-        // printf("Press any key to continue.");
+        // printf("Press any key to continue.\n");
     }
 
     else if (t == 3)
@@ -541,7 +541,7 @@ backagain:
             printf("No such flight exists.\n");
             goto backagain;
         }
-        printf("Press any key to continue.");
+        printf("Press any key to continue.\n");
     }
 
     else if (t == 4)
@@ -562,7 +562,7 @@ backagain:
                 printf("No such flight exists.\n");
                 goto backagain;
             }
-            printf("Press any key to continue.");
+            printf("Press any key to continue.\n");
         }
         else if (g == 2)
         {
@@ -577,7 +577,7 @@ backagain:
                 printf("No such flight exists.\n");
                 goto backagain;
             }
-            printf("Press any key to continue.");
+            printf("Press any key to continue.\n");
         }
         // printf("Enter a date (DD/MM/YYYY): ");
         // scanf("%s", &word);
@@ -593,7 +593,7 @@ backagain:
         //     printf("No such flight exists.\n");
         //     goto backagain;
         // }
-        // printf("Press any key to continue.");
+        // printf("Press any key to continue.\n");
         // if (g != 1)
         // {
 
@@ -634,7 +634,7 @@ backagain:
         //         printf("No such flight exists.");
         //         goto backagain;
         //     }
-        //     printf("Press any key to continue.");
+        //     printf("Press any key to continue.\n");
         // }
 
         // else
@@ -684,7 +684,7 @@ backagain:
         //         printf("No such flight exists.");
         //         goto backagain;
         //     }
-        //     printf("Press any key to continue.");
+        //     printf("Press any key to continue.\n");
         // }
     }
 
@@ -709,121 +709,20 @@ void deleteone()
     printf("Flight deleted successfully!");
 }
 
-void edit()
-{
-    search();
-    printf("Enter the Flight details to be edited ");
-    char ID[20], dat[10];
-    int recognisedD = -1;
-    int j;
-    if (total == 0)
-    {
-        printf("You've no data to modify!'");
-    }
-    else
-    {
-        printf("Flight ID: ");
-        scanf("%s", ID);
-        printf("Date of the flight(DD/MM/YYYY): ");
-        scanf("%s", dat);
-
-        int i = 0;
-        for (i = 0; i < total; i++)
-        {
-            if (FlightID[i] == *ID && date[i] == *dat)
-            {
-                recognisedD = i;
-            }
-        }
-
-        if (recognisedD != -1)
-        {
-
-            printf("What would you like to modify?");
-            printf("1. Flight ID");
-            printf("2. Destination");
-            printf("3. Orgin");
-            printf("4. Date");
-            printf("5. Time");
-            printf("6. Seats");
-            printf("  Enter Your Choice [1-6] = ");
-            scanf("%d", &j);
-
-            if (j == 1)
-            {
-                char temp[20];
-                printf(" Edit flight detail ");
-                printf("Enter the modified Flight ID: ");
-                scanf("%s", temp);
-                FlightID[recognisedD] = *temp;
-            }
-
-            if (j == 2)
-            {
-                char temp[20];
-                printf(" Edit flight detail ");
-                printf("Enter the modified Destination: ");
-                scanf("%s", temp);
-                Destination[recognisedD] = *temp;
-            }
-
-            if (j == 3)
-            {
-                char temp[20];
-                printf(" Edit flight detail ");
-                printf("Enter the modified Origin: ");
-                scanf("%s", temp);
-                Origin[recognisedD] = *temp;
-            }
-            if (j == 4)
-            {
-                char temp[10];
-                printf(" Edit flight detail ");
-                printf("Enter the modified Date(DD/MM/YYYY): ");
-                scanf("%s", temp);
-                date[recognisedD] = *temp;
-            }
-            if (j == 5)
-            {
-                char temp[6];
-                printf(" Edit flight detail ");
-                printf("Enter the modified Time(24 hours) ");
-                scanf("%s", temp);
-                Time[recognisedD] = *temp;
-            }
-            if (j == 6)
-            {
-                char temp[10];
-                printf(" Edit flight detail ");
-                printf("Enter the modified seats: ");
-                scanf("%s", temp);
-                seats[recognisedD] = *temp;
-            }
-            update();
-            printf("The details have been successfully modified!");
-        }
-    }
-
-    if (recognisedD == -1)
-    {
-        printf("Sorry, there are no flights with the given Flight ID!");
-    }
-}
-
 void admin_intro()
 {
     int a, b;
 
 back_admin:
-    printf("Welcome vistara! :)");
-    printf("Kindly choose what change you'd like to make to the database.");
+    printf("Welcome vistara! :)\n");
+    printf("Kindly choose what change you'd like to make to the database.\n");
 
-    printf("1. Add flights");
-    printf("2. Delete flights");
-    printf("3. Edit flight details");
-    printf("4. Logout");
+    printf("1. Add flights\n");
+    printf("2. Delete flights\n");
+    printf("3. Edit flight details\n");
+    printf("4. Logout\n");
 
-    printf("  Enter Your Choice [1-4] = ");
+    printf("Enter Your Choice [1-4] = ");
 
     scanf("%d", &a);
 
@@ -831,9 +730,9 @@ back_admin:
     {
         add();
 
-        printf("Press 0 to go back to the main page.");
-        printf("Press 1 to Exit.\n");
-        printf("  Enter Your Choice [0-1] = ");
+        printf("Press 0 to go back to the main page.\n");
+        printf("Press 1 to Exit.\n\n");
+        printf("Enter Your Choice [0-1] = ");
         scanf("%d", &b);
 
         if (b == 0)
@@ -849,10 +748,10 @@ back_admin:
     if (a == 2)
     {
         deleteone();
-        printf("Press any key to continue!");
-        printf("Press 0 to go back to the main page.");
-        printf("Press 1 to Exit.\n");
-        printf("  Enter Your Choice [0-1] = ");
+        printf("Press any key to continue.\n");
+        printf("Press 0 to go back to the main page.\n");
+        printf("Press 1 to Exit.\n\n");
+        printf("Enter Your Choice [0-1] = ");
 
         scanf("%d", &b);
 
@@ -869,10 +768,10 @@ back_admin:
     if (a == 3)
     {
         edit();
-        printf("Press any key to continue!");
-        printf("Press 0 to go back to the main page.");
-        printf("Press 1 to Exit.");
-        printf("  Enter Your Choice [0-1] = ");
+        printf("Press any key to continue.\n");
+        printf("Press 0 to go back to the main page.\n");
+        printf("Press 1 to Exit.\n");
+        printf("Enter Your Choice [0-1] = ");
 
         scanf("%d", &b);
 
@@ -893,7 +792,7 @@ back_admin:
 
     else
     {
-        printf("Invalid Choice! Try again.");
+        printf("Invalid Choice! Try again.\n");
         goto back_admin;
     }
 }
@@ -1099,7 +998,7 @@ void display()
     {
         printf("No such flight exists.");
     }
-    printf("Press any key to continue.");
+    printf("Press any key to continue.\n");
 }
 
 void user()
@@ -1113,15 +1012,15 @@ check:
     printf("2. Book the flight\n");
     printf("3. Logout\n");
 
-    printf("  Enter Your Choice [1-3] = ");
+    printf("Enter Your Choice [1-3] = ");
 
     scanf("%d", &i);
     if (i == 1)
     {
         search();
-        printf("Press 0 to go back to the main page.");
-        printf("Press 1 to Exit.\n");
-        printf("  Enter Your Choice [0-1] = ");
+        printf("Press 0 to go back to the main page.\n");
+        printf("Press 1 to Exit.\n\n");
+        printf("Enter Your Choice [0-1] = ");
 
         scanf("%d", &b);
         if (b == 0)
@@ -1192,7 +1091,7 @@ check:
     }
     else
     {
-        printf("Invalid Choice! Try again.");
+        printf("Invalid Choice! Try again.\n");
         goto check;
     }
 }
@@ -1213,7 +1112,247 @@ void update()
     }
     fclose(temp);
 }
+#define BUFFER_SIZE 1000
+int writeToALineInFile(int lineNumber, char *word)
+{
+    FILE *fp;
+    char line[1000];
+    int lineNumberFileCount = 0;
+    fp = fopen("Test.txt", "w");
+    while (fgets(line, 1000, fp) != NULL)
+    {
+        lineNumberFileCount++;
+        if (lineNumberFileCount == lineNumber)
+        {
+            fprintf(fp, "%s", word);
+        }
+    }
+    printf("Done");
+    // printf("%s", lineAppear);
+    fclose(fp);
+}
+int writeToAFile()
+{
+    FILE *fp;
+    char line[1000];
+    int lineNumberFileCount = 0;
+    fp = fopen("Test.txt", "w");
+    fprintf(fp, "Sagnik");
+    // printf("%s", lineAppear);
+    fclose(fp);
+}
+void ReplaceFunc(char *updatedStr, int lineNumber)
+{
+    /* File pointer to hold reference of input file */
+    FILE *fPtr;
+    FILE *fTemp;
 
+    char buffer[BUFFER_SIZE];
+    char newline[BUFFER_SIZE];
+    int line, count;
+
+    line = lineNumber;
+
+    /* Remove extra new line character from stdin */
+    fflush(stdin);
+
+    // printf("Replace '%d' line with: ", line);
+    // fgets(newline, BUFFER_SIZE, stdin);
+    strcat(updatedStr, "\n");
+    strcpy(newline, updatedStr);
+
+    /*  Open all required files */
+    fPtr = fopen("Test.txt", "r");
+    fTemp = fopen("replace.tmp", "w");
+
+    count = 0;
+    while ((fgets(buffer, BUFFER_SIZE, fPtr)) != NULL)
+    {
+        count++;
+
+        /* If current line is line to replace */
+        if (count == line)
+            fputs(newline, fTemp);
+        else
+            fputs(buffer, fTemp);
+    }
+
+    /* Close all files to release resource */
+    fclose(fPtr);
+    fclose(fTemp);
+
+    /* Delete original source file */
+    remove("Test.txt");
+
+    /* Rename temporary file as original file */
+    rename("replace.tmp", "Test.txt");
+
+    // printf("\nSuccessfully replaced '%d' line with '%s'.", line, newline);
+}
+
+int isEmpty(const char *str)
+{
+    char ch;
+
+    do
+    {
+        ch = *(str++);
+
+        // Check non whitespace character
+        if (ch != ' ' && ch != '\t' && ch != '\n' && ch != '\r' && ch != '\0')
+            return 0;
+
+    } while (ch != '\0');
+
+    return 1;
+}
+void removeEmptyLines(FILE *srcFile, FILE *tempFile)
+{
+    char buffer[BUFFER_SIZE];
+
+    while ((fgets(buffer, BUFFER_SIZE, srcFile)) != NULL)
+    {
+        /* If current line is not empty then write to temporary file */
+        if (!isEmpty(buffer))
+            fputs(buffer, tempFile);
+    }
+}
+void removeEmptyLinesFromFile()
+{
+    FILE *srcFile, *tempFile;
+
+    /* Open source file */
+    srcFile = fopen("Test.txt", "r");
+
+    /* Open temporary file */
+    tempFile = fopen("temp.txt", "w");
+
+    /* Remove empty lines from source file and write to temporary file */
+    removeEmptyLines(srcFile, tempFile);
+
+    /* Close all files to release resource */
+    fclose(srcFile);
+    fclose(tempFile);
+
+    /* Delete original source file */
+    remove("Test.txt");
+
+    /* Rename temporary file as original file */
+    rename("temp.txt", "Test.txt");
+}
+void editFlightDetails()
+{
+    printf("Enter Valid Serial Number from the Table Displayed: ");
+    int lineNumber;
+    scanf("%d", &lineNumber);
+    FILE *fp;
+    char line[1000];
+    char lineAppear[1000];
+    int lineNumberFileCount = 0;
+    fp = fopen("Test.txt", "r");
+    while (fgets(line, 1000, fp) != NULL)
+    {
+        lineNumberFileCount++;
+        if (lineNumberFileCount == lineNumber)
+        {
+            strncpy(lineAppear, line, sizeof(lineAppear));
+        }
+    }
+    fclose(fp);
+    // char buf[] = lineAppear;
+    int i = 0;
+    char *p = strtok(lineAppear, " ");
+    char *array[9];
+
+    while (p != NULL)
+    {
+        array[i++] = p;
+        p = strtok(NULL, " ");
+    }
+
+    for (i = 0; i < 9; ++i)
+        printf("%s ", array[i]);
+    printf("\nEnter Your Choice:\n1: Edit ID\n2: Edit Destination\n3: Edit Origin\n4: Edit Time\n5: Edit Seat Availability\n6: Edit Date\n7: Edit Adult Fare\n8: Edit Child Fare\n9:Edit Infant Fare\n");
+    int ch;
+    scanf("%d", &ch);
+    switch (ch)
+    {
+    case 1:
+        printf("Enter New ID:\n");
+        char newID[100];
+        scanf("%s", newID);
+        array[0] = newID;
+        break;
+    case 2:
+        printf("Enter New Destination:\n");
+        char newDestination[100];
+        scanf("%s", newDestination);
+        array[1] = newDestination;
+        break;
+    case 3:
+        printf("Enter New Origin:\n");
+        char newOrigin[100];
+        scanf("%s", newOrigin);
+        array[2] = newOrigin;
+        break;
+    case 4:
+        printf("Enter New Time:\n");
+        char newTime[100];
+        scanf("%s", newTime);
+        array[3] = newTime;
+        break;
+    case 5:
+        printf("Enter New Seat Availability:\n");
+        char newSeatAvailability[100];
+        scanf("%s", newSeatAvailability);
+        array[4] = newSeatAvailability;
+        break;
+    case 6:
+        printf("Enter New Date:\n");
+        char newDate[100];
+        scanf("%s", newDate);
+        array[5] = newDate;
+        break;
+    case 7:
+        printf("Enter New Adult Fare:\n");
+        char newAdultFare[100];
+        scanf("%s", newAdultFare);
+        array[6] = newAdultFare;
+        break;
+    case 8:
+        printf("Enter New Child Fare:\n");
+        char newChildFare[100];
+        scanf("%s", newChildFare);
+        array[7] = newChildFare;
+        break;
+    case 9:
+        printf("Enter New Infant Fare:\n");
+        char newInfantFare[100];
+        scanf("%s", newInfantFare);
+        array[8] = newInfantFare;
+        break;
+    default:
+        printf("Invalid Choice\n");
+    }
+    char updatedStr[] = "";
+    for (i = 0; i < 9; ++i)
+    {
+        strcat(updatedStr, array[i]);
+        strcat(updatedStr, " ");
+    }
+    printf("%s", updatedStr);
+    ReplaceFunc(updatedStr, lineNumber);
+    removeEmptyLinesFromFile();
+    // writeToAFile();
+    //Er opor porzonto kaj korche
+    // writeToALineInFile(lineNumber, updatedStr);
+    // return 0;
+}
+void edit()
+{
+    search();
+    editFlightDetails();
+}
 int main()
 
 {

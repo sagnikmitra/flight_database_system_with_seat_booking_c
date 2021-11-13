@@ -233,7 +233,7 @@ void removeEmptyLinesFromFile()
     /* Rename temporary file as original file */
     rename("temp.txt", "a.txt");
 }
-int main()
+void editFlightDetails()
 {
     printf("Enter Line Number: ");
     int lineNumber;
