@@ -1300,38 +1300,6 @@ void printCalendar(int year) // Function that prints the calendar for the given 
 	}
 }
 
-void display() // Function To display a calendar and the flights for the chosen date.
-{
-	printCalendar(2020); // prints calendar
-	char dt[50];
-	printf("Choose a date(DD/MM/YYYY): ");
-	scanf("%s", dt);
-	int n = total;
-	int count = 0;
-	printf("Available flights");
-	printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
-	int pos = 10;
-	for (int i = 0; i < n; i++)
-	{
-
-		if (dt == date[i]) // displays the available flights for the entered date
-		{
-			printf("%s\t", date[i]);
-			printf("%s\t", FlightID[i]);
-			printf("%s\t", Destination[i]);
-			printf("%s\t", Origin[i]);
-			printf("%s\t", Time[i]);
-			printf("%s\t", seats[i]);
-			count += 1;
-		}
-	}
-	if (count == 0)
-	{
-		printf("No such flight exists.");
-	}
-	printf("Press any key to continue.");
-}
-
 void user() // Function to Display all the options available to User which are: View Calendar, Free search, Book a flight
 {
 	int TicketNumber, i, j, b;

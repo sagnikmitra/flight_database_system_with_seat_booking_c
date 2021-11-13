@@ -20,14 +20,13 @@ void update();
 void TicketFunc(int n, int TicketNumber);
 
 int total, flight_book = -1;
-int infant = 1000, child = 2200, adult = 3000;
 
 struct login
 {
     char firstname[50];
     char lastname[20];
     char email[40];
-    char username[50];
+    char password[50];
 
 } u;
 
@@ -246,8 +245,8 @@ void Register()
         scanf("%s", a.lastname);
         printf("Enter email id: ");
         scanf("%s", a.email);
-        printf("Enter username: ");
-        scanf("%s", a.username);
+        printf("Enter password: ");
+        scanf("%s", a.password);
 
         fwrite(&a, sizeof(a), 1, fp);
         fclose(fp);
@@ -265,7 +264,7 @@ credentials:
     scanf("%s", a.lastname);
     printf("Enter email id: ");
     scanf("%s", a.email);
-    printf("Enter username: ");
+    printf("Enter password: ");
     scanf("%s", &user);
 
     s = 0;
@@ -273,7 +272,7 @@ credentials:
 
     {
         fread(&b, sizeof(b), 1, fp);
-        if (strcmp(user, b.username) == 0)
+        if (strcmp(user, b.email) == 0)
         {
             s += 1;
         }
@@ -282,14 +281,14 @@ credentials:
     if (s > 0)
 
     {
-        printf("User ID already exists");
+        printf("Email ID already exists");
         Login();
     }
     else
     {
         fclose(fp);
-        printf("Re-enter User name: ");
-        scanf("%s", a.username);
+        printf("Re-enter password: ");
+        scanf("%s", a.password);
 
         fp = fopen("login.txt", "a");
         fwrite(&a, sizeof(a), 1, fp);
@@ -297,7 +296,7 @@ credentials:
     }
 next:
 
-    printf("Your Username is the unique UserID\n");
+    printf("Your Email ID is the unique UserID\n");
     printf("Press any key to login with new UserID\n");
     printf("Press any key to continue\n");
     Login();
@@ -305,7 +304,8 @@ next:
 
 void Login()
 {
-    char username[50];
+    char username[40];
+    char password[50];
     int sum = 0;
 
     FILE *fp;
@@ -316,7 +316,7 @@ void Login()
     }
     else
     {
-        printf("No user ID has been registered in the file. Sign-up first to Continue");
+        //printf("No user ID has been registered in the file. Sign-up first to Continue");
         printf("Press any key to go back and Sign-up first");
         intro();
     }
@@ -328,15 +328,17 @@ login:
 
     printf("Enter valid UserID: ");
     scanf("%s", &username);
+    printf("Enter password: ");
+    scanf("%s", &password);
 
     while (!feof(fp))
 
     {
         fread(&a, sizeof(a), 1, fp);
-        if (strcmp(username, a.username) == 0)
+        if (strcmp(username, a.email) == 0 && strcmp(password, a.password) == 0)
         {
             sum += 1;
-            strcpy(u.username, a.username);
+            strcpy(u.password, a.password);
             strcpy(u.firstname, a.firstname);
             strcpy(u.email, a.email);
             strcpy(u.lastname, a.lastname);
@@ -538,7 +540,7 @@ backagain:
             }
             printf("Press any key to continue.\n");
         }
-        }
+    }
 
     else if (t == 5)
     {
@@ -674,18 +676,18 @@ int ticket(int n, int i, struct customer_details d[])
     scanf("%d", &d[i].age);
     if (d[i].age <= 5)
     {
-        printf("Ticket price is %d\n", infant);
-        d[i].price = infant;
+        printf("Ticket price is %d\n", 20);
+        d[i].price = 20;
     }
     else if (d[i].age > 5 && d[i].age < 18)
     {
-        printf("Ticket price is %d\n", child);
-        d[i].price = child;
+        printf("Ticket price is %d\n", 20);
+        d[i].price = 20;
     }
     else
     {
-        printf("Ticket price is %d\n", adult);
-        d[i].price = adult;
+        printf("Ticket price is %d\n", 0);
+        d[i].price = 20;
     }
 
     printf("First Name: ");
@@ -820,133 +822,6 @@ void TicketFunc(int n, int TicketNumber)
     }
 }
 
-void display()
-{
-    //printCalendar(2021);
-    char dt[50];
-    printf("Choose a date(DD/MM/YYYY): ");
-    scanf("%s", dt);
-    int n = total;
-    int count = 0;
-    printf("Available flights\n\n\n");
-    printf("Date\t\tID\tTo\tFrom\tTime\tSeats");
-
-    int i = 0;
-    for (i = 0; i < n; i++)
-    {
-
-        if (date[i] == *dt)
-        {
-            printf("%s\t", date[i]);
-            printf("%s\t", FlightID[i]);
-            printf("%s\t", Destination[i]);
-            printf("%s\t", Origin[i]);
-            printf("%s\t", Time[i]);
-            printf("%s\t", seats[i]);
-            count += 1;
-        }
-    }
-    if (count == 0)
-    {
-        printf("No such flight exists.");
-    }
-    printf("Press any key to continue.\n");
-}
-
-void user()
-{
-    int TicketNumber, i, j, b;
-    char ID[20], dates[10];
-check:
-
-    printf("Welcome %s %s\n", u.firstname, u.lastname);
-    printf("1. Free Search\n");
-    printf("2. Book the flight\n");
-    printf("3. Logout\n");
-
-    printf("Enter Your Choice [1-3] = ");
-
-    scanf("%d", &i);
-    if (i == 1)
-    {
-        search();
-        printf("Press 0 to go back to the main page.\n");
-        printf("Press 1 to Exit.\n\n");
-        printf("Enter Your Choice [0-1] = ");
-
-        scanf("%d", &b);
-        if (b == 0)
-        {
-            goto check;
-        }
-        else if (b == 1)
-        {
-            exit(0);
-        }
-    }
-
-    else if (i == 2)
-    {
-        if (total == 0)
-        {
-            printf("There are no flights available!'");
-            intro();
-        }
-
-        else
-        {
-            printf(" Book the flight ");
-            printf("Enter the date(DD/MM/YYYY): ");
-            scanf("%s", dates);
-            printf("Enter flight ID: ");
-            scanf("%s", ID);
-
-            int i = 0;
-            for (i = 0; i < total; i++)
-            {
-
-                if (strcmp(&(FlightID[i]), ID) == 0 && strcmp(&(date[i]), dates) == 0)
-                {
-                    flight_book = i;
-                }
-            }
-            if (flight_book == -1)
-            {
-                printf("Sorry, there is no such flight that you are looking for!");
-                printf("Try again.");
-                goto check;
-            }
-            else
-            {
-                int n = atoi(&(seats[flight_book]));
-
-                //int *plan = randomfunc(n);
-            check2:
-                printf("The number of available seats are %d", n);
-                printf("Number of seats you wish to book: ");
-                scanf("%d", &TicketNumber);
-                if (TicketNumber <= n)
-                {
-                    TicketFunc(n, TicketNumber);
-                }
-                else
-                {
-                    printf("Not enough seats available. Type another number!");
-                    goto check2;
-                }
-            }
-        }
-    }
-    else if (i == 3)
-    {
-        intro();
-    }
-    else
-    {
-        printf("Invalid Choice! Try again.\n");
-        goto check;
-    }
-}
 void update()
 {
     int i = 0;
@@ -1204,6 +1079,191 @@ void edit()
 {
     search();
     editFlightDetails();
+}
+
+void user()
+{
+    int TicketNumber, i, j, b;
+    char ID[20], dates[10];
+check:
+
+    printf("Welcome %s %s\n", u.firstname, u.lastname);
+    printf("1. Free Search\n");
+    printf("2. Book the flight\n");
+    printf("3. Logout\n");
+
+    printf("Enter Your Choice [1-3] = ");
+
+    scanf("%d", &i);
+    if (i == 1)
+    {
+        search();
+        printf("Press 0 to go back to the main page.\n");
+        printf("Press 1 to Exit.\n\n");
+        printf("Enter Your Choice [0-1] = ");
+
+        scanf("%d", &b);
+        if (b == 0)
+        {
+            goto check;
+        }
+        else if (b == 1)
+        {
+            exit(0);
+        }
+    }
+
+    else if (i == 2)
+    {
+        int vuid;
+        //Unique Id (asole etai sl. no.)
+        int totalTickets; //Total Number of Demanded tickets
+        search();
+        printf("Book the flight: ");
+        printf("Enter the Vistara Unique Id from the above table: ");
+        scanf("%d", &vuid);
+        int lineNumber = vuid;
+        printf("Enter the Total Number of Tickets you want to Book: ");
+        scanf("%d", &totalTickets);
+        int tTypeArr[totalTickets];
+    choice:
+        for (i = 0; i < totalTickets; i++)
+        {
+            int j = 0;
+            printf("Enter the Type of Ticket for Ticket %d", i + 1);
+            printf("\n1. Adult\n2. Child\n3. Infant");
+
+            printf("\nEnter Your Choice [1-3] = ");
+            scanf("%d", &j);
+
+            if (j == 1)
+            {
+                tTypeArr[i] = 0;
+            }
+            else if (j == 2)
+            {
+                tTypeArr[i] = 1;
+            }
+            else if (j == 3)
+            {
+                tTypeArr[i] = 2;
+            }
+            else
+            {
+                goto choice;
+            }
+        }
+        FILE *fp;
+        char line[1000];
+        char lineAppear[1000];
+        int lineNumberFileCount = 0;
+        fp = fopen("Test.txt", "r");
+        while (fgets(line, 1000, fp) != NULL)
+        {
+            lineNumberFileCount++;
+            if (lineNumberFileCount == vuid)
+            {
+                strncpy(lineAppear, line, sizeof(lineAppear));
+                break;
+            }
+        }
+        fclose(fp);
+        // char buf[] = lineAppear;
+        int i = 0;
+        char *p = strtok(lineAppear, " ");
+        char *array[9];
+
+        while (p != NULL)
+        {
+            array[i++] = p;
+            p = strtok(NULL, " ");
+        }
+
+        for (i = 0; i < 9; ++i)
+            printf("%s ", array[i]);
+        //er opor porzonto kaj korche
+        char myb64[1024];
+        strcpy(myb64, array[4]);
+        int atoiSA = atoi(myb64);
+        int seatPrev = 0;
+        seatPrev = atoiSA;
+        const int counter2 = seatPrev;
+        printf("Old Value: %d\n", seatPrev);
+        if (atoiSA < totalTickets)
+            printf("Ticket Underflow");
+        else
+        {
+            // printf("Entered the else atoi condition");
+            atoiSA -= totalTickets;
+            itoa(atoiSA, array[4], 10);
+            // printf("%s", array[4]);
+        }
+
+        char updatedStr[] = "";
+        for (i = 0; i < 9; ++i)
+        {
+            strcat(updatedStr, array[i]);
+            strcat(updatedStr, " ");
+        }
+        // printf("%s", updatedStr);
+
+        // printf("%d", lineNumber);
+
+        //FLIGHT ID, DESTINATION, ORIGIN, TIME, SEAT NUMBER, DATE, ADULT FARE, CHILD FARE, INFANT FARE
+        int totalFare = 0;
+        int counter = counter2;
+        printf("New Seat Prev Value: %d\n", counter2 + 1);
+        for (int i = 0; i < totalTickets; i++)
+        {
+            printf("Printing Total Tickets: %d", totalTickets);
+            char FirstName[50];
+            char LastName[50];
+            char Aadhaar[12];
+            printf("\n\nEnter First Name: ");
+            scanf("%s", FirstName);
+            printf("Enter Last Name: ");
+            scanf("%s", LastName);
+            printf("Enter Aadhaar Number: ");
+            scanf("%s", Aadhaar);
+            printf("\nTICKET-%d\n", i + 1);
+            printf("First Name: %s\n", FirstName);
+            printf("Last Name: %s\n", LastName);
+            printf("Aadhaar Number: %s\n", Aadhaar);
+            printf("Flight ID: %s\n", array[0]);
+            printf("Destination: %s\n", array[1]);
+            printf("Origin: %s\n", array[2]);
+            printf("Time: %s\n", array[3]);
+            printf("Date of Journey: %s\n", array[5]);
+            printf("Seat Number: %d\n", counter);
+            char ticketType[50];
+            int fare = 0;
+            if (tTypeArr[i] == 0)
+            {
+                printf("Adult Ticket\n");
+                printf("Fare: %s\n", array[6]);
+                totalFare += atoi(array[6]);
+            }
+            else if (tTypeArr[i] == 1)
+            {
+                printf("Child Ticket\n");
+                printf("Fare: %s\n", array[7]);
+                totalFare += atoi(array[7]);
+            }
+            else if (tTypeArr[i] == 2)
+            {
+                printf("Infant Ticket\n");
+                printf("Fare: %s\n", array[8]);
+                totalFare += atoi(array[8]);
+            }
+
+            counter--;
+        }
+
+        printf("Total Fare: %d\n", totalFare);
+
+        ReplaceFunc(updatedStr, lineNumber);
+        removeEmptyLinesFromFile();
+    }
 }
 int main()
 
