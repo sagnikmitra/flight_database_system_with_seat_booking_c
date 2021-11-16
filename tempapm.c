@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <time.h>
 #define BUFFER_SIZE 1000
+
 void intro();
 void Register();
 void Login();
@@ -58,6 +59,7 @@ char Time[100];
 char seats[100];
 char date[100];
 
+//Function to Print Line from a text file with the help of line number
 void printLineFromLineNumber(int lineNumber)
 {
     FILE *fp;
@@ -74,9 +76,10 @@ void printLineFromLineNumber(int lineNumber)
         }
     }
     printf("%d: %s", lineNumber, lineAppear);
-    // printf("%s", lineAppear);
+
     fclose(fp);
 }
+
 int searchItem(char *word)
 {
     FILE *fp;
@@ -99,6 +102,8 @@ findNextLine:
     fclose(fp);
     return count;
 }
+
+//Remove a line from given line number
 void removeLineFromLineNumber(int lineNumber)
 {
     FILE *fptr1, *fptr2;
@@ -127,6 +132,8 @@ void removeLineFromLineNumber(int lineNumber)
     fclose(fptr1);
     fclose(fptr2);
 }
+
+//Remove a file and rename temporary file to the previously deleted file name
 int removeFileAndRename()
 {
     if (remove("Test.txt") == 0)
@@ -136,7 +143,7 @@ int removeFileAndRename()
     else
     {
         printf("Could not delete file");
-    }; // remove the original file
+    };
     char old_name[] = "temp.txt";
     char new_name[] = "Test.txt";
     int value;
@@ -319,7 +326,7 @@ void Login()
     }
     else
     {
-        //printf("No user ID has been registered in the file. Sign-up first to Continue");
+
         printf("Press any key to go back and Sign-up first");
         intro();
     }
@@ -705,7 +712,7 @@ int writeToALineInFile(int lineNumber, char *word)
         }
     }
     printf("Done");
-    // printf("%s", lineAppear);
+
     fclose(fp);
 }
 int writeToAFile()
@@ -715,12 +722,12 @@ int writeToAFile()
     int lineNumberFileCount = 0;
     fp = fopen("Test.txt", "w");
     fprintf(fp, "Sagnik");
-    // printf("%s", lineAppear);
+
     fclose(fp);
 }
 void ReplaceFunc(char *updatedStr, int lineNumber)
 {
-    /* File pointer to hold reference of input file */
+
     FILE *fPtr;
     FILE *fTemp;
 
@@ -730,15 +737,11 @@ void ReplaceFunc(char *updatedStr, int lineNumber)
 
     line = lineNumber;
 
-    /* Remove extra new line character from stdin */
     fflush(stdin);
 
-    // printf("Replace '%d' line with: ", line);
-    // fgets(newline, BUFFER_SIZE, stdin);
     strcat(updatedStr, "\n");
     strcpy(newline, updatedStr);
 
-    /*  Open all required files */
     fPtr = fopen("Test.txt", "r");
     fTemp = fopen("replace.tmp", "w");
 
@@ -747,24 +750,18 @@ void ReplaceFunc(char *updatedStr, int lineNumber)
     {
         count++;
 
-        /* If current line is line to replace */
         if (count == line)
             fputs(newline, fTemp);
         else
             fputs(buffer, fTemp);
     }
 
-    /* Close all files to release resource */
     fclose(fPtr);
     fclose(fTemp);
 
-    /* Delete original source file */
     remove("Test.txt");
 
-    /* Rename temporary file as original file */
     rename("replace.tmp", "Test.txt");
-
-    // printf("\nSuccessfully replaced '%d' line with '%s'.", line, newline);
 }
 int isEmpty(const char *str)
 {
@@ -774,7 +771,6 @@ int isEmpty(const char *str)
     {
         ch = *(str++);
 
-        // Check non whitespace character
         if (ch != ' ' && ch != '\t' && ch != '\n' && ch != '\r' && ch != '\0')
             return 0;
 
@@ -788,7 +784,7 @@ void removeEmptyLines(FILE *srcFile, FILE *tempFile)
 
     while ((fgets(buffer, BUFFER_SIZE, srcFile)) != NULL)
     {
-        /* If current line is not empty then write to temporary file */
+
         if (!isEmpty(buffer))
             fputs(buffer, tempFile);
     }
@@ -797,23 +793,17 @@ void removeEmptyLinesFromFile()
 {
     FILE *srcFile, *tempFile;
 
-    /* Open source file */
     srcFile = fopen("Test.txt", "r");
 
-    /* Open temporary file */
     tempFile = fopen("temp.txt", "w");
 
-    /* Remove empty lines from source file and write to temporary file */
     removeEmptyLines(srcFile, tempFile);
 
-    /* Close all files to release resource */
     fclose(srcFile);
     fclose(tempFile);
 
-    /* Delete original source file */
     remove("Test.txt");
 
-    /* Rename temporary file as original file */
     rename("temp.txt", "Test.txt");
 }
 void editFlightDetails()
@@ -835,7 +825,7 @@ void editFlightDetails()
         }
     }
     fclose(fp);
-    // char buf[] = lineAppear;
+
     int i = 0;
     char *p = strtok(lineAppear, " ");
     char *array[9];
@@ -919,10 +909,6 @@ void editFlightDetails()
     printf("%s", updatedStr);
     ReplaceFunc(updatedStr, lineNumber);
     removeEmptyLinesFromFile();
-    // writeToAFile();
-    //Er opor porzonto kaj korche
-    // writeToALineInFile(lineNumber, updatedStr);
-    // return 0;
 }
 void edit()
 {
@@ -964,8 +950,8 @@ check:
     else if (i == 2)
     {
         int vuid;
-        //Unique Id (asole etai sl. no.)
-        int totalTickets = 0; //Total Number of Demanded tickets
+
+        int totalTickets = 0;
         search();
         printf("Book the flight: ");
         printf("Enter the Vistara Unique Id from the above table: ");
@@ -1017,7 +1003,7 @@ check:
             }
         }
         fclose(fp);
-        // char buf[] = lineAppear;
+
         int i = 0;
         char *p = strtok(lineAppear, " ");
         char *array[9];
@@ -1030,7 +1016,7 @@ check:
 
         for (i = 0; i < 9; ++i)
             printf("%s ", array[i]);
-        //er opor porzonto kaj korche
+
         char myb64[1024];
         strcpy(myb64, array[4]);
         int atoiSA = atoi(myb64);
@@ -1042,10 +1028,9 @@ check:
             printf("Ticket Underflow");
         else
         {
-            // printf("Entered the else atoi condition");
+
             atoiSA -= totalTickets;
             itoa(atoiSA, array[4], 10);
-            // printf("%s", array[4]);
         }
 
         char updatedStr[] = "";
@@ -1054,18 +1039,14 @@ check:
             strcat(updatedStr, array[i]);
             strcat(updatedStr, " ");
         }
-        // printf("%s", updatedStr);
 
-        // printf("%d", lineNumber);
-
-        //FLIGHT ID, DESTINATION, ORIGIN, TIME, SEAT NUMBER, DATE, ADULT FARE, CHILD FARE, INFANT FARE
         int totalFare = 0;
         int counter = counter2;
         printf("New Seat Prev Value: %d\n", counter2 + 1);
         int totalTickets2 = totalTickets1;
         for (int i = 0; i < totalTickets2; i++)
         {
-            // printf("Printing Total Tickets: %d", totalTickets);
+
             char FirstName[50];
             char LastName[50];
             char Aadhaar[12];
