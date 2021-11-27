@@ -58,6 +58,8 @@ char Time[100];
 char seats[100];
 char date[100];
 
+
+//Function to print the Line from the Line Number using the File Pointer
 void printLineFromLineNumber(int lineNumber)
 {
     FILE *fp;
@@ -77,6 +79,8 @@ void printLineFromLineNumber(int lineNumber)
     // printf("%s", lineAppear);
     fclose(fp);
 }
+
+//Function to search the flight
 int searchItem(char *word)
 {
     FILE *fp;
@@ -99,6 +103,8 @@ findNextLine:
     fclose(fp);
     return count;
 }
+
+//Remove a particular line from a file with the help of the line number
 void removeLineFromLineNumber(int lineNumber)
 {
     FILE *fptr1, *fptr2;
